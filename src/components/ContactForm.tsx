@@ -113,7 +113,7 @@ export const ContactForm: React.FC = () => {
       if (data.success) {
         setStatus({
           type: 'success',
-          message: 'Thank you! Your message has been delivered to my inbox.',
+          message: "Thank you for reaching out! Your message has been sent successfully. I'll get back to you within 24 hours.",
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {

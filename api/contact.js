@@ -84,7 +84,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: 'Thank you! Your message has been delivered to my inbox.',
+      message: "Thank you for reaching out! Your message has been sent successfully. I'll get back to you within 24 hours.",
     });
   } catch (error) {
     console.error('[Vercel Serverless] Email dispatch error:', error);
