@@ -47,6 +47,19 @@ export const ContactForm: React.FC = () => {
     setLoading(true);
     setStatus({ type: null, message: '' });
 
+    const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+    // 1. If Web3Forms is configured, use it directly (instant & reliable)
+    if (web3FormsKey && web3FormsKey !== 'YOUR_FREE_WEB3FORMS_KEY') {
+      try {
+        await submitToWeb3Forms(web3FormsKey);
+      } finally {
+        setLoading(false);
+      }
+      return;
+    }
+
+    // 2. Fallback to /api/contact (Serverless / SMTP)
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -62,32 +75,20 @@ export const ContactForm: React.FC = () => {
           message: data.message || 'Thank you! Your message has been delivered to my inbox.',
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
-        return;
-      }
-
-      // Check if Web3Forms fallback is explicitly configured
-      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-      if (web3FormsKey && web3FormsKey !== 'YOUR_FREE_WEB3FORMS_KEY') {
-        await submitToWeb3Forms(web3FormsKey);
       } else {
         setStatus({
           type: 'error',
           message:
             data.message ||
-            'Unable to send message. Please ensure SMTP credentials are set in Vercel, or reach out directly at developer.niket@gmail.com.',
+            'Unable to send message. Please ensure email settings are configured or email directly at developer.niket@gmail.com.',
         });
       }
     } catch (err: any) {
-      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-      if (web3FormsKey && web3FormsKey !== 'YOUR_FREE_WEB3FORMS_KEY') {
-        await submitToWeb3Forms(web3FormsKey);
-      } else {
-        setStatus({
-          type: 'error',
-          message:
-            'Network error sending message. Please reach out directly to developer.niket@gmail.com.',
-        });
-      }
+      setStatus({
+        type: 'error',
+        message:
+          'Network error sending message. Please reach out directly to developer.niket@gmail.com.',
+      });
     } finally {
       setLoading(false);
     }
