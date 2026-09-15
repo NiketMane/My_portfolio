@@ -1,0 +1,21 @@
+Hey I want to build my portfolio where I want to showcase myself to the world... 
+
+1. About Me Page -- I want my photo, about me, my experience, academic background, technical expertise, form data  
+2. Home Page
+3. Admin Page -- which holds all the website functionality toggleable, If I want to keep off a few page then it should toggle off & it should hide it form the entire page.(use features.ts file to make it)
+4. Form Data with mailer functionality
+5. Work Page -- where it will showcase my projects via GitHub
+
+I am a frontend web developer with 5+ YEO & I want to build my portfolio using these pages.
+& Now I M ALREADY becoming into a full stack developer.
+
+
+
+Form Data 
+Name
+Email
+Subject -- Select Subject -- Job Opportunities, General Message, Collaboration, Project Enquiry
+Message
+Send Message Button
+
+Also I need to display my email & LinkedIn, GitHub Links in the separate box.
