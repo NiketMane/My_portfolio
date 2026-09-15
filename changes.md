@@ -223,15 +223,52 @@ Complete record of all features, components, backend services, configurations, a
 
 ---
 
+### 18. 🚀 Git Repository Initialization & GitHub Remote Setup
+- **Git Repo Initialization**: Initialized empty Git repository (`git init`) and established `main` as the default branch.
+- **Repository Ignore Rules (`.gitignore`)**:
+  - Excluded `node_modules/`, `dist/`, build caches, local `.env` files, `.kilo/`, and `server/data/messages.json` to prevent sensitive or bulky files from being tracked.
+- **Author Identity Setup**:
+  - Configured global Git user identity (`user.name: Niket_Mane`, `user.email: niketbmane@gmail.com`).
+- **Initial Commit & GitHub Push**:
+  - Created initial repository commit and pushed cleanly to remote: `https://github.com/NiketMane/My_portfolio.git`.
+
+---
+
+### 19. ☁️ Vercel Deployment & Serverless Mail Engine (`api/contact.js` & `vercel.json`)
+- **Vercel Serverless Function (`api/contact.js`)**:
+  - Resolved Vercel deployment limitation where static hosting does not execute continuous background Node/Express processes (`server/server.js`).
+  - Created a native Vercel serverless function (`/api/contact`) utilizing `nodemailer` to dispatch contact inquiries directly on form submissions.
+  - Added robust credentials sanitization (stripping quotes, whitespace, and formatting anomalies) to prevent SMTP `BadCredentials` errors.
+  - Configured CORS headers and preflight `OPTIONS` handling for secure browser-to-serverless transactions.
+- **Vercel Routing Rules (`vercel.json`)**:
+  - Added rewrite configuration to route `/api/*` requests to the native serverless function while redirecting all client-side SPA routes (`/about`, `/work`, `/contact`, `/admin`) to `/index.html` to prevent 404s on page refresh.
+
+---
+
+### 20. 📬 Contact Form Flow & Web3Forms Zero-Maintenance Integration (`ContactForm.tsx`)
+- **Web3Forms Direct Priority**:
+  - Configured `ContactForm.tsx` to prioritize `VITE_WEB3FORMS_ACCESS_KEY` for zero-maintenance direct contact dispatching without needing Google App Passwords or SMTP credentials.
+  - Implemented seamless fallback to `/api/contact` if Web3Forms is not configured.
+- **Accurate Error & Feedback Handling**:
+  - Removed mock success banners that masked delivery failures.
+  - Updated real-time user notification to: *"Thank you for reaching out! Your message has been sent successfully. I'll get back to you within 24 hours."*
+  - Added clear error messaging guiding the user to direct contact information in the event of network or configuration issues.
+
+---
+
 ## 📁 Key File Locations
 
-- 🌌 Tech Canvas Background: [`src/components/TechBackground.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/TechBackground.tsx)
-- ⚙️ Feature & Security Config: [`src/config/features.ts`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/config/features.ts)
-- 🔒 Feature Context Provider: [`src/context/FeatureContext.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/context/FeatureContext.tsx)
-- 🚀 Express Backend Server: [`server/server.js`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/server/server.js)
-- 🛠️ Dev Server Runner: [`scripts/start.js`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/scripts/start.js)
-- 🎨 Design System CSS: [`src/index.css`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/index.css)
-- 🎬 Opening Intro Animation: [`src/components/OpeningIntro.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/OpeningIntro.tsx)
-- 💻 IDE Terminal Simulator: [`src/components/TerminalSimulator.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/TerminalSimulator.tsx)
-- 📬 Contact Form & Box: [`ContactForm.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/ContactForm.tsx), [`ContactBox.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/ContactBox.tsx)
-- 📄 Pages: [`Home.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Home.tsx), [`About.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/About.tsx), [`Work.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Work.tsx), [`Contact.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Contact.tsx), [`Admin.tsx`](file:///e:/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Admin.tsx)
+- 🌌 Tech Canvas Background: [`src/components/TechBackground.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/TechBackground.tsx)
+- ⚙️ Feature & Security Config: [`src/config/features.ts`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/config/features.ts)
+- 🔒 Feature Context Provider: [`src/context/FeatureContext.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/context/FeatureContext.tsx)
+- 🚀 Express Backend Server: [`server/server.js`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/server/server.js)
+- ⚡ Vercel Serverless Function: [`api/contact.js`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/api/contact.js)
+- 🌐 Vercel Routing Configuration: [`vercel.json`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/vercel.json)
+- 🚫 Git Exclusion Rules: [`.gitignore`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/.gitignore)
+- 🛠️ Dev Server Runner: [`scripts/start.js`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/scripts/start.js)
+- 🎨 Design System CSS: [`src/index.css`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/index.css)
+- 🎬 Opening Intro Animation: [`src/components/OpeningIntro.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/OpeningIntro.tsx)
+- 💻 IDE Terminal Simulator: [`src/components/TerminalSimulator.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/TerminalSimulator.tsx)
+- 📬 Contact Form & Box: [`ContactForm.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/ContactForm.tsx), [`ContactBox.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/ContactBox.tsx)
+- 📄 Pages: [`Home.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Home.tsx), [`About.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/About.tsx), [`Work.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Work.tsx), [`Contact.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Contact.tsx), [`Admin.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Admin.tsx)
+
