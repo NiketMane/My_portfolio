@@ -54,33 +54,52 @@ export const ContactForm: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
       if (response.ok && data.success) {
         setStatus({
           type: 'success',
-          message: data.message || 'Thank you! Your message has been delivered to my inbox and logged.',
+          message: data.message || 'Thank you! Your message has been delivered to my inbox.',
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        await submitToWeb3Forms();
+        return;
       }
-    } catch (err) {
-      await submitToWeb3Forms();
+
+      // Check if Web3Forms fallback is explicitly configured
+      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      if (web3FormsKey && web3FormsKey !== 'YOUR_FREE_WEB3FORMS_KEY') {
+        await submitToWeb3Forms(web3FormsKey);
+      } else {
+        setStatus({
+          type: 'error',
+          message:
+            data.message ||
+            'Unable to send message. Please ensure SMTP credentials are set in Vercel, or reach out directly at developer.niket@gmail.com.',
+        });
+      }
+    } catch (err: any) {
+      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      if (web3FormsKey && web3FormsKey !== 'YOUR_FREE_WEB3FORMS_KEY') {
+        await submitToWeb3Forms(web3FormsKey);
+      } else {
+        setStatus({
+          type: 'error',
+          message:
+            'Network error sending message. Please reach out directly to developer.niket@gmail.com.',
+        });
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  const submitToWeb3Forms = async () => {
+  const submitToWeb3Forms = async (key: string) => {
     try {
-      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'YOUR_FREE_WEB3FORMS_KEY';
-
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: web3FormsKey,
+          access_key: key,
           name: formData.name,
           email: formData.email,
           subject: `[Portfolio Inquiry] ${formData.subject} - from ${formData.name}`,
@@ -93,22 +112,20 @@ export const ContactForm: React.FC = () => {
       if (data.success) {
         setStatus({
           type: 'success',
-          message: 'Message dispatched successfully! Received in inbox.',
+          message: 'Thank you! Your message has been delivered to my inbox.',
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setStatus({
-          type: 'success',
-          message: 'Message recorded! (Backend audit logged & Nodemailer ready).',
+          type: 'error',
+          message: data.message || 'Failed to send message via Web3Forms. Please email me directly.',
         });
-        setFormData({ name: '', email: '', subject: '', message: '' });
       }
     } catch (error) {
       setStatus({
-        type: 'success',
-        message: 'Thank you! Message processed and logged to audit storage.',
+        type: 'error',
+        message: 'Could not reach contact service. Please email me directly at developer.niket@gmail.com.',
       });
-      setFormData({ name: '', email: '', subject: '', message: '' });
     }
   };
 
