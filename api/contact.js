@@ -27,9 +27,9 @@ export default async function handler(req, res) {
     });
   }
 
-  const smtpUser = process.env.SMTP_USER?.trim();
-  const smtpPass = process.env.SMTP_PASS?.replace(/\s+/g, '');
-  const recipientEmail = (process.env.RECIPIENT_EMAIL || smtpUser || 'niketbmane@gmail.com').trim();
+  const smtpUser = process.env.SMTP_USER?.replace(/["']/g, '').trim();
+  const smtpPass = process.env.SMTP_PASS?.replace(/[\s"']/g, '');
+  const recipientEmail = (process.env.RECIPIENT_EMAIL || smtpUser || 'niketbmane@gmail.com').replace(/["']/g, '').trim();
 
   if (!smtpUser || !smtpPass) {
     return res.status(500).json({
