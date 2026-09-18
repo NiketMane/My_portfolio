@@ -64,9 +64,9 @@ export const OpeningIntro: React.FC<OpeningIntroProps> = ({ onComplete }) => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
               style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '24px',
+                width: 'clamp(60px, 12vw, 80px)',
+                height: 'clamp(60px, 12vw, 80px)',
+                borderRadius: '20px',
                 background: 'linear-gradient(135deg, #6366f1, #06b6d4)',
                 display: 'flex',
                 alignItems: 'center',
@@ -74,7 +74,7 @@ export const OpeningIntro: React.FC<OpeningIntroProps> = ({ onComplete }) => {
                 color: 'white',
                 boxShadow: '0 0 40px rgba(99, 102, 241, 0.6)',
                 fontWeight: 800,
-                fontSize: '2rem',
+                fontSize: 'clamp(1.5rem, 4vw, 2rem)',
                 letterSpacing: '-1px',
               }}
             >
@@ -87,13 +87,13 @@ export const OpeningIntro: React.FC<OpeningIntroProps> = ({ onComplete }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700 }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700 }}>
                 Welcome to Portfolio
               </span>
-              <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'white', marginTop: '4px' }}>
+              <h1 style={{ fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', fontWeight: 800, color: 'white', marginTop: '4px' }}>
                 Niket Mane
               </h1>
-              <p className="gradient-text-fullstack" style={{ fontSize: '1.05rem', fontWeight: 700, marginTop: '2px' }}>
+              <p className="gradient-text-fullstack" style={{ fontSize: 'clamp(0.85rem, 2.8vw, 1.05rem)', fontWeight: 700, marginTop: '4px' }}>
                 Python Backend Developer | AWS Certified (SAA-C03)
               </p>
             </motion.div>

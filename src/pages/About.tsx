@@ -153,12 +153,12 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <div className="container" style={{ padding: '48px 24px', display: 'flex', flexDirection: 'column', gap: '64px' }}>
+    <div className="container page-container" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(40px, 6vw, 64px)' }}>
       {/* Profile Banner */}
-      <section className="glass-panel" style={{ padding: '48px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '32px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+      <section className="glass-panel about-banner-panel">
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '24px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               <span className="badge-pill">
                 <User size={14} /> About Me
               </span>
@@ -170,19 +170,19 @@ export const About: React.FC = () => {
               </span>
             </div>
 
-            <h1 style={{ fontSize: '2.75rem', fontWeight: 800, color: 'white', lineHeight: '1.2' }}>
+            <h1 className="about-banner-title">
               Engineering resilient backend services with <span className="gradient-text">Python, FastAPI, and AWS.</span>
             </h1>
 
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.7' }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.02rem', lineHeight: '1.7' }}>
               I am a <strong style={{ color: 'white' }}>Python Backend Developer</strong> with <strong style={{ color: 'white' }}>~3 years of experience</strong> building reliable RESTful APIs and backend services using <strong style={{ color: 'white' }}>FastAPI</strong> and <strong style={{ color: 'white' }}>SQLAlchemy ORM</strong>. Based in Bangalore, India, my primary focus is backend engineering—migrating legacy <strong style={{ color: 'var(--accent-cyan-light)' }}>Oracle PL/SQL business logic to Python</strong>, tuning SQL queries, and deploying services on AWS (<strong style={{ color: 'white' }}>Lambda, EC2, S3, RDS</strong>).
             </p>
 
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: '1.7' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7' }}>
               With hands-on frontend experience building responsive web modules in <strong style={{ color: 'white' }}>React</strong>, I also bring full-stack versatility to collaborate across the entire stack and deliver end-to-end features. I hold the <strong style={{ color: 'var(--accent-cyan-light)' }}>AWS Certified Solutions Architect (SAA-C03)</strong> certification.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', paddingTop: '8px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '8px' }}>
               <NavLink to="/contact" className="btn-primary">
                 <span>Contact Niket</span>
               </NavLink>
@@ -196,18 +196,18 @@ export const About: React.FC = () => {
       </section>
 
       {/* Certifications Section */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <section style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div className="brand-icon" style={{ width: '44px', height: '44px', background: 'linear-gradient(135deg, #ff9900, #f59e0b)' }}>
-            <ShieldCheck size={22} color="white" />
+          <div className="brand-icon" style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, #ff9900, #f59e0b)', flexShrink: 0 }}>
+            <ShieldCheck size={20} color="white" />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'white' }}>AWS Official Certifications</h2>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Industry-standard cloud architectural validation</p>
+            <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white' }}>AWS Official Certifications</h2>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Industry-standard cloud architectural validation</p>
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '20px' }}>
           {certifications.map((cert) => (
             <motion.div
               key={cert.code}
@@ -215,7 +215,7 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="glass-card"
-              style={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '16px', borderLeft: '4px solid #ff9900' }}
+              style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: '14px', borderLeft: '4px solid #ff9900' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <span className="badge-pill" style={{ fontFamily: 'var(--font-mono)', background: 'rgba(255, 153, 0, 0.15)', color: '#ffb74d', borderColor: 'rgba(255, 153, 0, 0.3)' }}>
@@ -238,14 +238,14 @@ export const About: React.FC = () => {
 
       {/* Experience Timeline */}
       {features.experienceTimeline && (
-        <section style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <section style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div className="brand-icon" style={{ width: '44px', height: '44px' }}>
-              <Briefcase size={22} />
+            <div className="brand-icon" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
+              <Briefcase size={20} />
             </div>
             <div>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'white' }}>Work Experience (~3 Years)</h2>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Professional software engineering roles, enterprise clients, and impact</p>
+              <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.8rem)', fontWeight: 800, color: 'white' }}>Work Experience (~3 Years)</h2>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Professional software engineering roles, enterprise clients, and impact</p>
             </div>
           </div>
 
@@ -327,16 +327,16 @@ export const About: React.FC = () => {
       {features.academicBackground && (
         <section style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div className="brand-icon" style={{ width: '44px', height: '44px', background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo))' }}>
-              <GraduationCap size={22} />
+            <div className="brand-icon" style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo))', flexShrink: 0 }}>
+              <GraduationCap size={20} />
             </div>
             <div>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'white' }}>Academic Education</h2>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Formal university degree credentials in Computer Applications</p>
+              <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white' }}>Academic Education</h2>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Formal university degree credentials in Computer Applications</p>
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
             {academics.map((acad, idx) => (
               <motion.div
                 key={acad.degree}
@@ -345,19 +345,19 @@ export const About: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className="glass-card"
-                style={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '16px' }}
+                style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: '14px' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <Award size={28} color="var(--accent-cyan-light)" />
+                  <Award size={26} color="var(--accent-cyan-light)" />
                   <span className="badge-pill" style={{ fontFamily: 'var(--font-mono)' }}>{acad.year}</span>
                 </div>
 
                 <div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'white' }}>{acad.degree}</h3>
-                  <p style={{ color: 'var(--accent-indigo-light)', fontSize: '0.9rem', fontWeight: 600 }}>{acad.institution}</p>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'white' }}>{acad.degree}</h3>
+                  <p style={{ color: 'var(--accent-indigo-light)', fontSize: '0.88rem', fontWeight: 600 }}>{acad.institution}</p>
                 </div>
 
-                <div style={{ padding: '12px 16px', borderRadius: 'var(--radius-md)', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', fontSize: '0.85rem' }}>
+                <div style={{ padding: '12px 14px', borderRadius: 'var(--radius-md)', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', fontSize: '0.82rem' }}>
                   <strong style={{ color: 'white', display: 'block', marginBottom: '4px' }}>Degree Level: {acad.score}</strong>
                   <p style={{ color: 'var(--text-muted)' }}>{acad.highlights}</p>
                 </div>
@@ -369,38 +369,38 @@ export const About: React.FC = () => {
 
       {/* Technical Expertise Matrix */}
       {features.technicalExpertise && (
-        <section style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <section style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div className="brand-icon" style={{ width: '44px', height: '44px', background: 'linear-gradient(135deg, var(--accent-purple), var(--accent-indigo))' }}>
-              <Cpu size={22} />
+            <div className="brand-icon" style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, var(--accent-purple), var(--accent-indigo))', flexShrink: 0 }}>
+              <Cpu size={20} />
             </div>
             <div>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'white' }}>Technical Skills Matrix</h2>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Categorized breakdown of programming languages, frameworks, cloud, and tools</p>
+              <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white' }}>Technical Skills Matrix</h2>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Categorized breakdown of programming languages, frameworks, cloud, and tools</p>
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '16px' }}>
             {technicalMatrix.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.category} className="glass-card" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '12px' }}>
-                    <Icon size={18} color="var(--accent-cyan-light)" />
-                    <h3 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'white' }}>
+                <div key={item.category} className="glass-card" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '10px' }}>
+                    <Icon size={16} color="var(--accent-cyan-light)" />
+                    <h3 style={{ fontSize: '0.92rem', fontWeight: 800, color: 'white' }}>
                       {item.category}
                     </h3>
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {item.skills.map((skill) => (
                       <span
                         key={skill}
                         style={{
-                          padding: '6px 12px',
+                          padding: '5px 10px',
                           borderRadius: 'var(--radius-sm)',
                           background: 'var(--bg-surface)',
                           border: '1px solid var(--border-subtle)',
-                          fontSize: '0.82rem',
+                          fontSize: '0.78rem',
                           fontWeight: 600,
                           color: 'var(--text-secondary)',
                         }}
@@ -417,19 +417,19 @@ export const About: React.FC = () => {
       )}
 
       {/* Ready to Collaborate CTA Banner */}
-      <section className="glass-panel" style={{ padding: '48px 36px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-        <div className="brand-icon" style={{ width: '52px', height: '52px', background: 'linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan))' }}>
-          <Rocket size={26} color="white" />
+      <section className="glass-panel about-banner-panel" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+        <div className="brand-icon" style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan))' }}>
+          <Rocket size={24} color="white" />
         </div>
-        <div style={{ maxWidth: '640px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: 'white' }}>
+        <div style={{ maxWidth: '640px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)', fontWeight: 800, color: 'white' }}>
             Ready to Build or Modernize Your Backend?
           </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
             Whether you need a high-performance Python FastAPI service, Oracle PL/SQL modernization, or secure AWS cloud architecture, let's connect directly.
           </p>
         </div>
-        <NavLink to="/contact" className="btn-primary" style={{ padding: '14px 32px' }}>
+        <NavLink to="/contact" className="btn-primary" style={{ padding: '12px 28px' }}>
           <span>Get In Touch & Connect</span>
           <ArrowRight size={18} />
         </NavLink>

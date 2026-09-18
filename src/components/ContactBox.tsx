@@ -57,16 +57,16 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
         {/* Email Box */}
-        <div className="contact-row-email">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{ padding: '10px', background: 'rgba(99, 102, 241, 0.15)', borderRadius: 'var(--radius-sm)', color: 'var(--accent-indigo-light)' }}>
+        <div className="contact-row-email" style={{ flexWrap: 'wrap', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0, flex: '1 1 200px' }}>
+            <div style={{ padding: '10px', background: 'rgba(99, 102, 241, 0.15)', borderRadius: 'var(--radius-sm)', color: 'var(--accent-indigo-light)', flexShrink: 0 }}>
               <Mail size={20} />
             </div>
-            <div>
+            <div style={{ minWidth: 0 }}>
               <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, letterSpacing: '0.5px' }}>
                 Email Address
               </span>
-              <p style={{ fontSize: '0.92rem', fontFamily: 'var(--font-mono)', color: 'white', fontWeight: 600, userSelect: 'all' }}>
+              <p style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', color: 'white', fontWeight: 600, userSelect: 'all', wordBreak: 'break-all' }}>
                 {email}
               </p>
             </div>
@@ -74,7 +74,7 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
           <button
             onClick={handleCopyEmail}
             className="btn-secondary btn-sm"
-            style={{ fontSize: '0.8rem', padding: '6px 12px' }}
+            style={{ fontSize: '0.8rem', padding: '6px 14px', flexShrink: 0 }}
           >
             {copiedEmail ? (
               <>
@@ -91,21 +91,21 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
         </div>
 
         {/* Phone Box */}
-        <div className="contact-row-email">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{ padding: '10px', background: 'rgba(16, 185, 129, 0.15)', borderRadius: 'var(--radius-sm)', color: 'var(--accent-emerald-light)' }}>
+        <div className="contact-row-email" style={{ flexWrap: 'wrap', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0, flex: '1 1 180px' }}>
+            <div style={{ padding: '10px', background: 'rgba(16, 185, 129, 0.15)', borderRadius: 'var(--radius-sm)', color: 'var(--accent-emerald-light)', flexShrink: 0 }}>
               <Phone size={20} />
             </div>
-            <div>
+            <div style={{ minWidth: 0 }}>
               <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, letterSpacing: '0.5px' }}>
                 Phone Number
               </span>
-              <p style={{ fontSize: '0.92rem', fontFamily: 'var(--font-mono)', color: 'white', fontWeight: 600 }}>
+              <p style={{ fontSize: '0.9rem', fontFamily: 'var(--font-mono)', color: 'white', fontWeight: 600 }}>
                 {phone}
               </p>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: '6px' }}>
+          <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
             <a
               href={`tel:6361939644`}
               className="btn-secondary btn-sm"

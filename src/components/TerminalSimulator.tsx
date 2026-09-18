@@ -197,22 +197,23 @@ export const TerminalSimulator: React.FC = () => {
   return (
     <div className="terminal-wrapper" style={{ boxShadow: '0 20px 50px -10px rgba(0,0,0,0.8), 0 0 30px rgba(99, 102, 241, 0.15)' }}>
       {/* 1. Title Bar */}
-      <div className="terminal-header">
-        <div className="terminal-dots">
+      <div className="terminal-header" style={{ flexWrap: 'wrap', gap: '8px' }}>
+        <div className="terminal-dots" style={{ minWidth: 0 }}>
           <span className="dot dot-red" />
           <span className="dot dot-yellow" />
           <span className="dot dot-green" />
-          <span className="terminal-title">
-            <Terminal size={14} color="var(--accent-indigo-light)" />
-            <span>niket@backend-server: ~/production-code</span>
+          <span className="terminal-title" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <Terminal size={14} color="var(--accent-indigo-light)" style={{ flexShrink: 0 }} />
+            <span className="terminal-title-desktop">niket@backend-server: ~/production-code</span>
+            <span className="terminal-title-mobile">niket@server: ~/code</span>
           </span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           <button
             onClick={handleRunCode}
             disabled={isRunningTest}
-            className="btn-secondary btn-sm"
+            className="btn-secondary btn-sm terminal-header-btn"
             style={{
               padding: '5px 12px',
               fontSize: '0.78rem',
@@ -229,18 +230,19 @@ export const TerminalSimulator: React.FC = () => {
 
           <button
             onClick={handleCopy}
-            className="btn-secondary btn-sm"
+            className="btn-secondary btn-sm terminal-header-btn"
             style={{ padding: '5px 12px', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '6px' }}
             title="Copy code snippet to clipboard"
           >
             {copied ? <Check size={12} color="var(--accent-emerald)" /> : <Copy size={12} />}
-            <span>{copied ? 'Copied!' : 'Copy Code'}</span>
+            <span className="terminal-copy-desktop">{copied ? 'Copied!' : 'Copy Code'}</span>
+            <span className="terminal-copy-mobile">{copied ? 'Copied!' : 'Copy'}</span>
           </button>
         </div>
       </div>
 
       {/* 2. File Tabs with Clear Category Badges */}
-      <div className="terminal-tabs">
+      <div className="terminal-tabs" style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
         {(Object.keys(CODE_SNIPPETS) as Array<keyof typeof CODE_SNIPPETS>).map((key) => {
           const tab = CODE_SNIPPETS[key];
           const Icon = tab.icon;
@@ -258,12 +260,13 @@ export const TerminalSimulator: React.FC = () => {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '12px 20px',
+                flexShrink: 0,
               }}
             >
-              <Icon size={15} color={tab.color} />
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                <span style={{ fontWeight: isActive ? 700 : 500, color: isActive ? '#fff' : '#94a3b8' }}>{tab.filename}</span>
-                <span style={{ fontSize: '0.68rem', color: tab.color, opacity: isActive ? 1 : 0.7 }}>{tab.badge}</span>
+              <Icon size={15} color={tab.color} style={{ flexShrink: 0 }} />
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+                <span className="terminal-tab-filename" style={{ fontWeight: isActive ? 700 : 500, color: isActive ? '#fff' : '#94a3b8' }}>{tab.filename}</span>
+                <span className="terminal-tab-badge" style={{ color: tab.color, opacity: isActive ? 1 : 0.7 }}>{tab.badge}</span>
               </div>
             </button>
           );
@@ -272,6 +275,7 @@ export const TerminalSimulator: React.FC = () => {
 
       {/* 3. Executive Explanation Banner (Understandable at a glance) */}
       <div
+        className="terminal-info-banner"
         style={{
           background: 'rgba(15, 23, 42, 0.85)',
           padding: '12px 20px',
@@ -288,52 +292,42 @@ export const TerminalSimulator: React.FC = () => {
             background: 'rgba(99, 102, 241, 0.15)',
             color: 'var(--accent-indigo-light)',
             marginTop: '2px',
+            flexShrink: 0,
           }}
         >
           <Info size={16} />
         </div>
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            <strong style={{ color: 'white', fontSize: '0.88rem' }}>{currentSnippet.title}</strong>
-            <span
-              style={{
-                fontSize: '0.7rem',
-                padding: '2px 8px',
-                borderRadius: '4px',
-                background: 'rgba(56, 189, 248, 0.15)',
-                color: 'var(--accent-cyan-light)',
-                fontFamily: 'var(--font-mono)',
-              }}
-            >
+            <strong className="terminal-info-title" style={{ color: 'white' }}>{currentSnippet.title}</strong>
+            <span className="terminal-info-badge">
               {currentSnippet.language}
             </span>
           </div>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', margin: '4px 0 0 0', lineHeight: '1.5' }}>
+          <p className="terminal-info-desc" style={{ color: 'var(--text-secondary)', margin: '4px 0 0 0' }}>
             {currentSnippet.description}
           </p>
         </div>
       </div>
 
       {/* 4. Code Body with Line Numbers & Syntax Highlighting */}
-      <div className="terminal-body" style={{ padding: '20px', overflowX: 'auto', background: '#070b16' }}>
-        <div style={{ display: 'table', width: '100%', fontFamily: 'var(--font-mono)', fontSize: '0.86rem', lineHeight: '1.65' }}>
+      <div className="terminal-body" style={{ padding: '20px', overflowX: 'auto', background: '#070b16', WebkitOverflowScrolling: 'touch' }}>
+        <div className="terminal-code-table" style={{ display: 'table', width: '100%', fontFamily: 'var(--font-mono)' }}>
           {lines.map((line, i) => (
             <div key={i} style={{ display: 'table-row' }}>
               <span
+                className="terminal-line-num"
                 style={{
                   display: 'table-cell',
-                  paddingRight: '18px',
                   color: 'rgba(148, 163, 184, 0.35)',
                   textAlign: 'right',
                   userSelect: 'none',
-                  fontSize: '0.78rem',
                   verticalAlign: 'top',
-                  width: '32px',
                 }}
               >
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <span style={{ display: 'table-cell', whiteSpace: 'pre', verticalAlign: 'top' }}>
+              <span className="terminal-code-cell" style={{ display: 'table-cell', whiteSpace: 'pre', verticalAlign: 'top' }}>
                 {highlightPythonLine(line)}
               </span>
             </div>
@@ -347,6 +341,7 @@ export const TerminalSimulator: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
+              className="terminal-pytest-drawer"
               style={{
                 marginTop: '16px',
                 padding: '14px 18px',
@@ -354,7 +349,6 @@ export const TerminalSimulator: React.FC = () => {
                 background: 'rgba(6, 78, 59, 0.25)',
                 border: '1px solid rgba(16, 185, 129, 0.4)',
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.82rem',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
@@ -373,7 +367,7 @@ export const TerminalSimulator: React.FC = () => {
       </div>
 
       {/* 6. Footer Status Bar */}
-      <div className="terminal-footer" style={{ padding: '10px 18px', fontSize: '0.78rem', background: '#0a0e1c' }}>
+      <div className="terminal-footer" style={{ padding: '10px 18px', fontSize: '0.78rem', background: '#0a0e1c', flexWrap: 'wrap', gap: '14px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-emerald)' }} />
@@ -383,7 +377,8 @@ export const TerminalSimulator: React.FC = () => {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
           <Sparkles size={12} color="var(--accent-amber)" />
-          <span>Click "Run Pytest" or switch tabs above</span>
+          <span className="terminal-footer-hint-desktop">Click "Run Pytest" or switch tabs above</span>
+          <span className="terminal-footer-hint-mobile">Pytest verified</span>
         </div>
       </div>
     </div>

@@ -176,26 +176,26 @@ export const Work: React.FC = () => {
   });
 
   return (
-    <div className="container" style={{ padding: '48px 24px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
+    <div className="container page-container" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(28px, 4vw, 48px)' }}>
       {/* Page Header */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '780px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '780px' }}>
         <span className="badge-pill" style={{ width: 'fit-content' }}>
           <Github size={14} /> Backend & Cloud Repositories
         </span>
-        <h1 style={{ fontSize: '3rem', fontWeight: 800, color: 'white', lineHeight: '1.15' }}>
+        <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 800, color: 'white', lineHeight: '1.15' }}>
           Production Systems, <span className="gradient-text">FastAPI Services</span> & AWS Architecture
         </h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.6' }}>
           Explore modern Python backend projects, legacy Oracle PL/SQL modernization pipelines, AWS cloud deployments, and REST API architectures.
         </p>
       </div>
 
       {/* GitHub Live Feed Controls */}
       {features.githubApiFeed && (
-        <section className="glass-panel" style={{ padding: '24px 32px' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '20px' }}>
+        <section className="glass-panel" style={{ padding: 'clamp(16px, 3vw, 24px)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div className="brand-icon" style={{ width: '38px', height: '38px' }}>
+              <div className="brand-icon" style={{ width: '38px', height: '38px', flexShrink: 0 }}>
                 <Github size={20} />
               </div>
               <div>
@@ -206,8 +206,8 @@ export const Work: React.FC = () => {
               </div>
             </div>
 
-            <form onSubmit={handleFetchSubmit} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div className="form-group" style={{ margin: 0, minWidth: '220px' }}>
+            <form onSubmit={handleFetchSubmit} style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: '1 1 260px', maxWidth: '400px' }}>
+              <div className="form-group" style={{ margin: 0, flex: 1, minWidth: 0 }}>
                 <input
                   type="text"
                   value={inputUsername}
@@ -221,7 +221,7 @@ export const Work: React.FC = () => {
                 type="submit"
                 disabled={loading}
                 className="btn-primary btn-sm"
-                style={{ padding: '10px 16px', fontSize: '0.85rem' }}
+                style={{ padding: '10px 16px', fontSize: '0.85rem', flexShrink: 0 }}
               >
                 <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
                 <span>{loading ? 'Syncing...' : 'Sync'}</span>
@@ -232,18 +232,19 @@ export const Work: React.FC = () => {
       )}
 
       {/* Filter and Search Bar */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="work-filter-bar">
           {/* Category Filter Pills */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          <div className="category-pills-wrapper">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`badge-pill ${activeCategory === cat ? 'active' : ''}`}
+                className={`badge-pill category-pill-btn ${activeCategory === cat ? 'active' : ''}`}
                 style={{
                   cursor: 'pointer',
-                  padding: '8px 16px',
+                  padding: '6px 14px',
+                  fontSize: '0.8rem',
                   background: activeCategory === cat ? 'var(--accent-indigo)' : 'var(--bg-surface)',
                   color: activeCategory === cat ? 'white' : 'var(--text-secondary)',
                   borderColor: activeCategory === cat ? 'var(--accent-indigo)' : 'var(--border-subtle)',
@@ -255,7 +256,7 @@ export const Work: React.FC = () => {
           </div>
 
           {/* Search Input */}
-          <div style={{ position: 'relative', minWidth: '260px' }}>
+          <div className="search-input-wrapper">
             <Search size={16} color="var(--text-muted)" style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }} />
             <input
               type="text"

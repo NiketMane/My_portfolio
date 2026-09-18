@@ -135,7 +135,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar with secret personal Admin entrance */}
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Niket Mane. All rights reserved.</p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <NavLink to="/admin" style={{ color: 'var(--text-dim)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.78rem' }} title="Personal Admin Portal">
               <Lock size={12} />
               <span>Owner Access</span>

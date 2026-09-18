@@ -71,6 +71,9 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -79,6 +82,8 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
   position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -86,6 +91,13 @@ body {
     radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.16) 0%, transparent 45%),
     radial-gradient(circle at 85% 35%, rgba(6, 182, 212, 0.14) 0%, transparent 50%),
     radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.12) 0%, transparent 50%);
+}
+
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* Futuristic Cyber Coordinate Grid with Intersection Nodes */
@@ -143,21 +155,65 @@ body::after {
   justify-content: space-between;
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .main-content {
   flex-grow: 1;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding-left: 24px;
+  padding-right: 24px;
   width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.page-container {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding-top: 28px;
+    padding-bottom: 48px;
+  }
 }
 
 .section-space {
   padding: 64px 0;
+}
+
+@media (max-width: 640px) {
+  .section-space {
+    padding: 40px 0;
+  }
 }
 
 /* Glassmorphism Cards */
@@ -670,6 +726,48 @@ input:checked + .slider:before {
   color: #94a3b8;
 }
 
+/* Terminal Desktop Base Typography & Elements */
+.terminal-code-table {
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.terminal-line-num {
+  padding-right: 18px;
+  font-size: 0.78rem;
+  width: 32px;
+}
+
+.terminal-tab-filename {
+  font-size: 0.82rem;
+}
+
+.terminal-tab-badge {
+  font-size: 0.68rem;
+}
+
+.terminal-info-title {
+  font-size: 0.88rem;
+}
+
+.terminal-info-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-cyan-light);
+  font-family: var(--font-mono);
+}
+
+.terminal-info-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.terminal-pytest-drawer {
+  font-size: 0.82rem;
+}
+
 /* Stats Grid */
 .stats-grid {
   display: grid;
@@ -893,6 +991,36 @@ input:checked + .slider:before {
   color: white;
 }
 
+/* Work Page Filter Bar & Category Pills */
+.work-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.category-pills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-pill-btn {
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1 1 240px;
+  max-width: 320px;
+}
+
+.work-grid,
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -905,6 +1033,121 @@ input:checked + .slider:before {
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
+  height: 100%;
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.project-topic-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-indigo-light);
+}
+
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Desktop Typography & Hero Elements */
+.hero-name-title {
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin: -8px 0 0 0;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  word-break: break-word;
+}
+
+.hero-greeting-title {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #e2e8f0;
+  letter-spacing: 1px;
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+.hero-subtitle-badge {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--accent-cyan-light);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.hero-status-pill {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
+.hero-btn-main {
+  padding: 14px 28px !important;
+}
+
+/* Visibility switches for desktop vs mobile labels */
+.btn-text-desktop,
+.terminal-title-desktop,
+.terminal-copy-desktop,
+.terminal-footer-hint-desktop {
+  display: inline;
+}
+
+.btn-icon-desktop {
+  display: inline-block;
+}
+
+.btn-text-mobile,
+.btn-icon-mobile,
+.terminal-title-mobile,
+.terminal-copy-mobile,
+.terminal-footer-hint-mobile {
+  display: none !important;
+}
+
+.about-banner-panel {
+  padding: 48px;
+}
+
+.about-banner-title {
+  font-size: clamp(1.6rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
 }
 
 /* Admin Dashboard */
@@ -960,25 +1203,390 @@ input:checked + .slider:before {
 
 @media (max-width: 1024px) {
   .hero-title { font-size: 2.75rem; }
+  .hero-name-title { font-size: 4.5rem; }
+  .hero-greeting-title { font-size: 2.5rem; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
   .inbox-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.2rem; }
-  .hero-subtitle { font-size: 1rem; }
-  .nav-menu-desktop { display: none; }
-  .mobile-toggle-btn { display: block; }
-  .mobile-drawer.open { display: block; }
-  .stats-grid { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .admin-grid { grid-template-columns: 1fr; }
-  .contact-social-grid { grid-template-columns: 1fr; }
-  .timeline-container { margin-left: 10px; padding-left: 20px; }
-  .timeline-node { left: -37px; }
+  .home-container {
+    gap: 48px !important;
+  }
+  .navbar-header {
+    height: auto;
+    min-height: 64px;
+  }
+  .navbar-container {
+    height: 64px;
+  }
+  .nav-menu-desktop {
+    display: none;
+  }
+  .desktop-cta-btn {
+    display: none !important;
+  }
+  .mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-drawer.open {
+    display: block;
+  }
+  .hero-wrapper {
+    padding: 40px 0 30px 0 !important;
+  }
+  .hero-content {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .hero-greeting-title {
+    font-size: 1.85rem !important;
+    letter-spacing: 0.5px;
+  }
+  .hero-name-title {
+    font-size: 3.2rem !important;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .hero-subtitle-badge {
+    font-size: 0.8rem !important;
+    letter-spacing: 2px !important;
+  }
+  .hero-subtitle {
+    font-size: 0.92rem !important;
+    line-height: 1.6;
+  }
+  .hero-status-pill {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .hero-btn-main {
+    padding: 10px 20px !important;
+    font-size: 0.88rem !important;
+  }
+  .terminal-tab-btn {
+    padding: 8px 14px !important;
+  }
+  .terminal-tab-filename {
+    font-size: 0.76rem !important;
+  }
+  .terminal-tab-badge {
+    font-size: 0.62rem !important;
+  }
+  .terminal-info-banner {
+    padding: 10px 14px !important;
+  }
+  .terminal-info-title {
+    font-size: 0.80rem !important;
+  }
+  .terminal-info-desc {
+    font-size: 0.75rem !important;
+    line-height: 1.45 !important;
+  }
+  .terminal-info-badge {
+    font-size: 0.64rem !important;
+    padding: 2px 6px !important;
+  }
+  .terminal-body {
+    padding: 14px 10px !important;
+  }
+  .terminal-code-table {
+    font-size: 0.76rem !important;
+    line-height: 1.55 !important;
+  }
+  .terminal-line-num {
+    padding-right: 12px !important;
+    font-size: 0.70rem !important;
+    width: 26px !important;
+  }
+  .terminal-pytest-drawer {
+    font-size: 0.75rem !important;
+    padding: 10px 14px !important;
+  }
+  .terminal-footer {
+    padding: 8px 14px !important;
+    font-size: 0.72rem !important;
+    gap: 8px !important;
+  }
+  .work-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .category-pills-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 8px;
+    width: 100%;
+    padding: 2px 2px 6px 2px;
+  }
+  .category-pills-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .category-pill-btn {
+    flex-shrink: 0;
+  }
+  .search-input-wrapper {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.88rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .stat-card {
+    padding: 16px 12px;
+  }
+  .stat-number {
+    font-size: 1.85rem;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .work-grid, .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-social-grid {
+    grid-template-columns: 1fr;
+  }
+  .timeline-container {
+    margin-left: 10px;
+    padding-left: 20px;
+    gap: 20px;
+  }
+  .timeline-node {
+    left: -29px;
+    width: 18px;
+    height: 18px;
+    top: 22px;
+  }
+  .timeline-card {
+    padding: 18px 14px;
+  }
+  .about-banner-panel {
+    padding: 24px 18px;
+  }
+  .contact-box-card {
+    padding: 24px 18px;
+  }
+  .footer-wrapper {
+    padding: 40px 0 24px 0;
+    margin-top: 48px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    align-items: center;
+  }
+  /* Prevent iOS Safari auto-zoom on input focus */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .terminal-title-desktop {
+    display: none !important;
+  }
+  .terminal-title-mobile {
+    display: inline !important;
+  }
+  .terminal-copy-desktop {
+    display: none !important;
+  }
+  .terminal-copy-mobile {
+    display: inline !important;
+  }
+  .terminal-footer-hint-desktop {
+    display: none !important;
+  }
+  .terminal-footer-hint-mobile {
+    display: inline !important;
+  }
+  .terminal-header-btn {
+    padding: 4px 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-subtitle {
+    display: none;
+  }
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .brand-title {
+    font-size: 1.05rem;
+  }
+  .badge-fullstack {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+  }
+  .hero-greeting-title {
+    font-size: 1.4rem !important;
+  }
+  .hero-name-title {
+    font-size: 2.25rem !important;
+    letter-spacing: -0.5px !important;
+  }
+  .hero-subtitle-badge {
+    font-size: 0.72rem !important;
+    letter-spacing: 1px !important;
+  }
+  .hero-subtitle {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    padding: 0 4px;
+  }
+  .hero-status-pill {
+    padding: 6px 10px;
+    font-size: 0.76rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .stat-card {
+    padding: 14px 8px;
+  }
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  .contact-row-email {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .contact-row-email > div {
+    width: 100%;
+  }
+  .contact-row-email button,
+  .contact-row-email a {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin: 4px auto 0 auto;
+  }
+  .hero-btn-main {
+    width: auto !important;
+    flex: 0 1 auto !important;
+    padding: 8px 14px !important;
+    font-size: 0.78rem !important;
+    gap: 6px !important;
+    border-radius: var(--radius-sm) !important;
+  }
+  .btn-text-desktop {
+    display: none !important;
+  }
+  .btn-text-mobile {
+    display: inline !important;
+  }
+  .btn-icon-desktop {
+    display: none !important;
+  }
+  .btn-icon-mobile {
+    display: inline-block !important;
+  }
+
+  /* Compact Terminal Typography for Small Mobile Screens */
+  .terminal-code-table {
+    font-size: 0.68rem !important;
+    line-height: 1.5 !important;
+  }
+  .terminal-line-num {
+    font-size: 0.60rem !important;
+    padding-right: 6px !important;
+    width: 20px !important;
+  }
+  .terminal-info-banner {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  .terminal-info-title {
+    font-size: 0.74rem !important;
+  }
+  .terminal-info-desc {
+    font-size: 0.68rem !important;
+    line-height: 1.4 !important;
+  }
+  .terminal-info-badge {
+    font-size: 0.60rem !important;
+    padding: 1px 5px !important;
+  }
+  .terminal-tab-btn {
+    padding: 6px 10px !important;
+    gap: 6px !important;
+  }
+  .terminal-tab-filename {
+    font-size: 0.70rem !important;
+  }
+  .terminal-tab-badge {
+    font-size: 0.58rem !important;
+  }
+  .terminal-body {
+    padding: 10px 8px !important;
+  }
+  .terminal-header {
+    padding: 8px 12px !important;
+  }
+  .terminal-title {
+    font-size: 0.72rem !important;
+  }
+  .terminal-header-btn {
+    padding: 4px 8px !important;
+    font-size: 0.70rem !important;
+  }
+  .terminal-footer {
+    padding: 6px 12px !important;
+    font-size: 0.68rem !important;
+    gap: 6px !important;
+  }
+  .terminal-pytest-drawer {
+    font-size: 0.70rem !important;
+    padding: 8px 10px !important;
+  }
+  .category-pill-btn {
+    padding: 6px 12px !important;
+    font-size: 0.76rem !important;
+  }
 }

@@ -17,15 +17,15 @@ export const Contact: React.FC = () => {
   const { features } = useFeatures();
 
   return (
-    <div className="container" style={{ padding: '48px 24px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
+    <div className="container page-container" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(28px, 4vw, 48px)' }}>
       {/* Page Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '780px' }}
+        style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '780px' }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           <span className="badge-pill">
             <Sparkles size={14} /> Contact & Connect
           </span>
@@ -34,11 +34,11 @@ export const Contact: React.FC = () => {
           </span>
         </div>
 
-        <h1 style={{ fontSize: '3rem', fontWeight: 800, color: 'white', lineHeight: '1.15' }}>
+        <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 800, color: 'white', lineHeight: '1.15' }}>
           Let's Build Resilient <span className="gradient-text">Backend Systems</span> Together
         </h1>
 
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.7' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.6' }}>
           Whether you're looking for a <strong style={{ color: 'white' }}>Python Backend Developer</strong>, need guidance on modernizing legacy Oracle PL/SQL packages, or want to engineer cloud infrastructure on AWS, feel free to reach out directly or send a message below.
         </p>
       </motion.div>
@@ -55,8 +55,8 @@ export const Contact: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
-        className="glass-panel"
-        style={{ padding: '32px 36px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}
+        className="glass-panel about-banner-panel"
+        style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '20px' }}
       >
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
           <div style={{ padding: '10px', borderRadius: 'var(--radius-sm)', background: 'rgba(99, 102, 241, 0.15)', color: 'var(--accent-indigo-light)' }}>

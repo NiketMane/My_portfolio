@@ -96,7 +96,7 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
-          <NavLink to="/contact" className="btn-primary btn-sm" style={{ letterSpacing: '0.5px' }}>
+          <NavLink to="/contact" className="btn-primary btn-sm desktop-cta-btn" style={{ letterSpacing: '0.5px' }}>
             <span>Get In Touch</span>
           </NavLink>
 
@@ -153,6 +153,15 @@ export const Navbar: React.FC = () => {
                   </NavLink>
                 );
               })}
+
+              <NavLink
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="btn-primary"
+                style={{ width: '100%', justifyContent: 'center', marginTop: '10px', padding: '12px' }}
+              >
+                <span>Get In Touch</span>
+              </NavLink>
             </div>
           </motion.div>
         )}

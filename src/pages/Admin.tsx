@@ -159,15 +159,15 @@ export const Admin: React.FC = () => {
   // -------------------------------------------------------------
   if (!isUnlocked) {
     return (
-      <div className="container" style={{ padding: '80px 24px', display: 'flex', justifyContent: 'center' }}>
-        <div className="glass-card" style={{ maxWidth: '440px', width: '100%', padding: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div className="brand-icon" style={{ width: '64px', height: '64px', margin: '0 auto', background: 'linear-gradient(135deg, var(--accent-amber), var(--accent-indigo))' }}>
-            <Lock size={32} />
+      <div className="container page-container" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="glass-card" style={{ maxWidth: '440px', width: '100%', padding: 'clamp(24px, 5vw, 40px)', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="brand-icon" style={{ width: '56px', height: '56px', margin: '0 auto', background: 'linear-gradient(135deg, var(--accent-amber), var(--accent-indigo))' }}>
+            <Lock size={28} />
           </div>
 
           <div>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Personal Admin Access</h2>
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Personal Admin Access</h2>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
               This page is hidden from public view. Please enter your personal owner PIN to unlock settings.
             </p>
           </div>
@@ -184,7 +184,7 @@ export const Admin: React.FC = () => {
                 type="password"
                 value={pinInput}
                 onChange={(e) => setPinInput(e.target.value)}
-                placeholder="Enter 4-digit PIN (Default: 1234)"
+                placeholder="Enter PIN"
                 required
                 className="form-input"
                 style={{ textAlign: 'center', fontSize: '1.2rem', letterSpacing: '4px', fontFamily: 'var(--font-mono)' }}
@@ -205,12 +205,12 @@ export const Admin: React.FC = () => {
   // UNLOCKED PERSONAL ADMIN DASHBOARD
   // -------------------------------------------------------------
   return (
-    <div className="container" style={{ padding: '48px 24px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
+    <div className="container page-container" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 4vw, 40px)' }}>
       {/* Admin Title Header */}
-      <div className="glass-panel" style={{ padding: '36px', borderColor: 'rgba(245, 158, 11, 0.4)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
+      <div className="glass-panel about-banner-panel" style={{ borderColor: 'rgba(245, 158, 11, 0.4)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
               <span className="badge-pill badge-amber">
                 <Shield size={14} /> Personal Owner Dashboard
               </span>
@@ -218,13 +218,13 @@ export const Admin: React.FC = () => {
                 <Unlock size={12} /> Authenticated Session
               </span>
             </div>
-            <h1 style={{ fontSize: '2.25rem', fontWeight: 800, color: 'white' }}>Website Administration Center</h1>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', maxWidth: '640px' }}>
+            <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'white' }}>Website Administration Center</h1>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '640px' }}>
               Manage website feature flags, upload/link your resume, inspect received contact messages, and configure personal access.
             </p>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
             <button onClick={resetAllFeatures} className="btn-secondary btn-sm">
               <RotateCcw size={14} color="#fbbf24" />
               <span>Reset Toggles</span>
@@ -238,8 +238,8 @@ export const Admin: React.FC = () => {
       </div>
 
       {/* Admin Tabs */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '16px', overflowX: 'auto' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '16px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
           <button
             onClick={() => setActiveTab('toggles')}
             className={`btn-secondary ${activeTab === 'toggles' ? 'btn-primary' : ''}`}
