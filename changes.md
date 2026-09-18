@@ -256,6 +256,42 @@ Complete record of all features, components, backend services, configurations, a
 
 ---
 
+### 21. 📱 Comprehensive Mobile Responsiveness & Viewport Overhaul
+
+- **Strict Desktop & Laptop Fidelity Preservation**:
+  - Maintained 100% of all desktop layout parameters, typography (`5.5rem` hero title, `3rem` greeting, `1.15rem` bio description), action button labels (*"View Project Showcase"*, *"Experience & Background"*, *"View Resume"*), desktop button padding (`14px 28px`), and IDE terminal simulator header (`niket@backend-server: ~/production-code`, `Run Pytest`, `Copy Code`).
+  - Code font size remains `0.86rem` and all desktop grid alignments remain completely untouched.
+
+- **Hero Actions Mobile Viewport Optimization (`Home.tsx`, `src/index.css`)**:
+  - Replaced bulky, full-screen vertical button stacks on mobile screens ($\le 768\text{px}$) with an elegant horizontal inline badge row (`flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px`).
+  - Implemented responsive label switching via `.btn-text-full` and `.btn-text-mobile`: dynamically displays *"View Projects"*, *"Experience"*, and *"Resume"* on mobile while preserving the complete descriptive titles on desktop.
+  - Reduced mobile button padding to `8px 14px` with `0.82rem` font size and `15px` icons, eliminating screen covering while keeping touch targets comfortable and accessible.
+  - Scaled hero headline fluidly down to `2.25rem` on small viewports ($\le 480\text{px}$) to prevent horizontal blowout and maintain aesthetic balance.
+
+- **Terminal Simulator Mobile Typography & Code Scaling (`TerminalSimulator.tsx`, `src/index.css`)**:
+  - Scaled code body font down from `0.86rem` to a crisp, high-density `0.68rem` (`line-height: 1.5`) on mobile devices, ensuring multi-line Python, FastAPI, and PL/SQL code blocks fit cleanly without excessive vertical stretching.
+  - Reduced line number gutter width and font size to `0.60rem` (`20px` gutter).
+  - Scaled executive explanation banner text to `0.74rem` / `0.68rem` with compact `8px 12px` padding.
+  - Compacted file navigation tabs to `0.70rem` with `6px 10px` padding.
+  - Shortened mobile terminal header title to `niket@server: ~/code` and copy action to `Copy` on screens $\le 480\text{px}$.
+
+- **Single-Row Horizontal Category Filter Track (`Work.tsx`, `src/index.css`)**:
+  - Resolved awkward multi-row pill wrapping and alignment collisions on the `/work` portfolio page on mobile screens.
+  - Converted category filter container into a single-row touch-scrollable horizontal track (`.work-categories-track`) with `flex-wrap: nowrap`, `overflow-x: auto`, `padding-bottom: 8px`, `scroll-snap-type: x mandatory`, and hidden scrollbars (`scrollbar-width: none`).
+  - All 5 category pills (`All Projects`, `Backend`, `Database`, `Cloud`, `Frontend`) now sit on a unified baseline with smooth edge bleed and comfortable tap margins.
+
+- **Screen Frame Attachment & Container Padding Fix (`src/index.css`, `About.tsx`, `Work.tsx`, `Contact.tsx`, `Admin.tsx`)**:
+  - Resolved issue where page content on mobile screens was flush against the hardware bezel / browser window frame.
+  - Removed restrictive inline `style={{ padding: '... 0' }}` resets across `About.tsx`, `Work.tsx`, `Contact.tsx`, and `Admin.tsx` which previously overrode global container margins.
+  - Standardized `.container` and `.page-container` side padding across all viewport breakpoints: `16px` on mobile ($\le 480\text{px}$), `18px` on tablets ($\le 768\text{px}$), and `24px` on desktop.
+  - Fixed mobile experience timeline coordinate alignment in `About.tsx` (`margin-left: 10px; padding-left: 20px; left: -29px`) so chronological connecting lines and status dots align neatly without clipping.
+
+- **Mobile Navigation Bar Polish (`Navbar.tsx`, `src/index.css`)**:
+  - Optimized mobile navigation bar height to `60px` with `1.15rem` logo text to preserve screen real estate.
+  - Enhanced slide-out mobile drawer menu with subtle backdrop blur (`backdrop-filter: blur(16px)`) and comfortable 44px tap targets.
+
+---
+
 ## 📁 Key File Locations
 
 - 🌌 Tech Canvas Background: [`src/components/TechBackground.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/TechBackground.tsx)
