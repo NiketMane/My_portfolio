@@ -166,7 +166,7 @@ export const Admin: React.FC = () => {
           </div>
 
           <div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Personal Admin Access</h2>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px' }}>Personal Admin Access</h2>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
               This page is hidden from public view. Please enter your personal owner PIN to unlock settings.
             </p>
@@ -218,7 +218,7 @@ export const Admin: React.FC = () => {
                 <Unlock size={12} /> Authenticated Session
               </span>
             </div>
-            <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'white' }}>Website Administration Center</h1>
+            <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Website Administration Center</h1>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '640px' }}>
               Manage website feature flags, upload/link your resume, inspect received contact messages, and configure personal access.
             </p>
@@ -293,7 +293,7 @@ export const Admin: React.FC = () => {
                       <div key={item.key} className="glass-card toggle-card">
                         <div>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <span style={{ fontWeight: 800, fontSize: '1.05rem', color: 'white' }}>{item.label}</span>
+                            <span style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--text-primary)' }}>{item.label}</span>
                             <span className={`badge-pill ${isEnabled ? 'badge-fullstack' : ''}`} style={{ fontSize: '0.7rem' }}>
                               {isEnabled ? 'ACTIVE' : 'HIDDEN'}
                             </span>
@@ -323,7 +323,7 @@ export const Admin: React.FC = () => {
                       <div key={item.key} className="glass-card toggle-card">
                         <div>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <span style={{ fontWeight: 800, fontSize: '1.05rem', color: 'white' }}>{item.label}</span>
+                            <span style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--text-primary)' }}>{item.label}</span>
                             <span className={`badge-pill ${isEnabled ? 'badge-fullstack' : ''}`} style={{ fontSize: '0.7rem' }}>
                               {isEnabled ? 'ENABLED' : 'DISABLED'}
                             </span>
@@ -346,7 +346,7 @@ export const Admin: React.FC = () => {
         {activeTab === 'resume' && (
           <div className="glass-card" style={{ padding: '32px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
             <div>
-              <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginBottom: '4px' }}>Resume Dispatch Settings</h2>
+              <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>Resume Dispatch Settings</h2>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
                 Configure whether visitors view your Google Drive link or download a direct PDF uploaded file when clicking "Resume".
               </p>
@@ -376,7 +376,7 @@ export const Admin: React.FC = () => {
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
                       <Link size={20} color="var(--accent-indigo-light)" />
-                      <strong style={{ color: 'white', fontSize: '1rem' }}>Google Drive Link</strong>
+                      <strong style={{ color: 'var(--text-primary)', fontSize: '1rem' }}>Google Drive Link</strong>
                     </div>
                     <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
                       Opens your shared Google Drive view URL in a new browser tab.
@@ -395,7 +395,7 @@ export const Admin: React.FC = () => {
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
                       <Upload size={20} color="var(--accent-cyan-light)" />
-                      <strong style={{ color: 'white', fontSize: '1rem' }}>Direct PDF File Upload</strong>
+                      <strong style={{ color: 'var(--text-primary)', fontSize: '1rem' }}>Direct PDF File Upload</strong>
                     </div>
                     <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
                       Serves a direct uploaded PDF file directly from the website.
@@ -421,7 +421,7 @@ export const Admin: React.FC = () => {
                 <label className="form-label">Direct PDF File Upload</label>
                 <div style={{ padding: '24px', border: '2px dashed var(--border-subtle)', borderRadius: 'var(--radius-md)', textAlign: 'center', background: 'rgba(9, 13, 26, 0.6)' }}>
                   <Upload size={32} color="var(--accent-cyan-light)" style={{ margin: '0 auto 8px auto' }} />
-                  <p style={{ fontSize: '0.9rem', color: 'white', fontWeight: 600, marginBottom: '4px' }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: 600, marginBottom: '4px' }}>
                     Select a PDF Resume file from your computer
                   </p>
                   <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
@@ -453,7 +453,7 @@ export const Admin: React.FC = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white' }}>Stored Contact Messages</h2>
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>Stored Contact Messages</h2>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                   Stored locally in <code style={{ color: '#fbbf24', fontFamily: 'var(--font-mono)' }}>server/data/messages.json</code>
                 </p>
@@ -481,7 +481,7 @@ export const Admin: React.FC = () => {
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                           <User size={14} color="var(--accent-indigo-light)" />
-                          <strong style={{ color: 'white', fontSize: '0.92rem' }}>{msg.name}</strong>
+                          <strong style={{ color: 'var(--text-primary)', fontSize: '0.92rem' }}>{msg.name}</strong>
                         </div>
                         <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
                           {new Date(msg.createdAt).toLocaleDateString()}
@@ -500,8 +500,8 @@ export const Admin: React.FC = () => {
                     <div className="glass-card" style={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
                       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '16px' }}>
                         <div>
-                          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white' }}>{selectedMessage.subject}</h3>
-                          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>From: <strong style={{ color: 'white' }}>{selectedMessage.name}</strong> ({selectedMessage.email})</p>
+                          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>{selectedMessage.subject}</h3>
+                          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>From: <strong style={{ color: 'var(--text-primary)' }}>{selectedMessage.name}</strong> ({selectedMessage.email})</p>
                         </div>
                         <button onClick={() => handleDeleteMessage(selectedMessage.id)} className="btn-secondary btn-sm" style={{ color: 'var(--accent-rose)', borderColor: 'rgba(244, 63, 94, 0.3)' }}>
                           <Trash2 size={16} />
@@ -522,7 +522,7 @@ export const Admin: React.FC = () => {
                   ) : (
                     <div className="glass-panel" style={{ padding: '48px', textAlign: 'center', color: 'var(--text-muted)' }}>
                       <Eye size={36} style={{ margin: '0 auto 12px auto' }} />
-                      <p style={{ fontWeight: 600, color: 'white' }}>Select a message to view details</p>
+                      <p style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Select a message to view details</p>
                     </div>
                   )}
                 </div>
@@ -530,7 +530,7 @@ export const Admin: React.FC = () => {
             ) : (
               <div className="glass-panel" style={{ padding: '48px', textAlign: 'center', color: 'var(--text-muted)' }}>
                 <Inbox size={40} color="var(--accent-indigo-light)" style={{ margin: '0 auto 16px auto' }} />
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'white', marginBottom: '8px' }}>Inbox is Empty</h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>Inbox is Empty</h3>
               </div>
             )}
           </div>
@@ -540,7 +540,7 @@ export const Admin: React.FC = () => {
         {activeTab === 'security' && (
           <div className="glass-card" style={{ padding: '32px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
             <div>
-              <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginBottom: '4px' }}>Personal Security & Visibility</h2>
+              <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>Personal Security & Visibility</h2>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
                 Configure your personal admin access PIN and navbar link visibility settings.
               </p>
@@ -556,7 +556,7 @@ export const Admin: React.FC = () => {
             {/* Public Navigation Link Visibility Toggle */}
             <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <strong style={{ color: 'white', fontSize: '1rem', display: 'block', marginBottom: '4px' }}>
+                <strong style={{ color: 'var(--text-primary)', fontSize: '1rem', display: 'block', marginBottom: '4px' }}>
                   Show Admin Link in Public Navigation Bar
                 </strong>
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>

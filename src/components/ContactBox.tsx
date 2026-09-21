@@ -45,7 +45,7 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
             <Sparkles size={22} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white' }}>Direct Contact Details</h3>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>Direct Contact Details</h3>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Get in touch for Python Backend & AWS roles</p>
           </div>
         </div>
@@ -66,7 +66,7 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
               <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, letterSpacing: '0.5px' }}>
                 Email Address
               </span>
-              <p style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', color: 'white', fontWeight: 600, userSelect: 'all', wordBreak: 'break-all' }}>
+              <p style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', color: 'var(--text-primary)', fontWeight: 600, userSelect: 'all', wordBreak: 'break-all' }}>
                 {email}
               </p>
             </div>
@@ -100,7 +100,7 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
               <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, letterSpacing: '0.5px' }}>
                 Phone Number
               </span>
-              <p style={{ fontSize: '0.9rem', fontFamily: 'var(--font-mono)', color: 'white', fontWeight: 600 }}>
+              <p style={{ fontSize: '0.9rem', fontFamily: 'var(--font-mono)', color: 'var(--text-primary)', fontWeight: 600 }}>
                 {phone}
               </p>
             </div>
@@ -143,7 +143,7 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
               </div>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>LinkedIn</span>
-                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: 'white' }}>Professional Profile</span>
+                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-primary)' }}>Professional Profile</span>
               </div>
             </div>
             <ExternalLink size={16} color="var(--text-muted)" />
@@ -157,7 +157,7 @@ export const ContactBox: React.FC<ContactBoxProps> = ({
               </div>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600 }}>GitHub</span>
-                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: 'white' }}>Source Repos</span>
+                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-primary)' }}>Source Repos</span>
               </div>
             </div>
             <ExternalLink size={16} color="var(--text-muted)" />

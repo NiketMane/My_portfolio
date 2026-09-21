@@ -175,11 +175,11 @@ export const About: React.FC = () => {
             </h1>
 
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.02rem', lineHeight: '1.7' }}>
-              I am a <strong style={{ color: 'white' }}>Python Backend Developer</strong> with <strong style={{ color: 'white' }}>~3 years of experience</strong> building reliable RESTful APIs and backend services using <strong style={{ color: 'white' }}>FastAPI</strong> and <strong style={{ color: 'white' }}>SQLAlchemy ORM</strong>. Based in Bangalore, India, my primary focus is backend engineering—migrating legacy <strong style={{ color: 'var(--accent-cyan-light)' }}>Oracle PL/SQL business logic to Python</strong>, tuning SQL queries, and deploying services on AWS (<strong style={{ color: 'white' }}>Lambda, EC2, S3, RDS</strong>).
+              I am a <strong style={{ color: 'var(--text-primary)' }}>Python Backend Developer</strong> with <strong style={{ color: 'var(--text-primary)' }}>~3 years of experience</strong> building reliable RESTful APIs and backend services using <strong style={{ color: 'var(--text-primary)' }}>FastAPI</strong> and <strong style={{ color: 'var(--text-primary)' }}>SQLAlchemy ORM</strong>. Based in Bangalore, India, my primary focus is backend engineering—migrating legacy <strong style={{ color: 'var(--text-primary)' }}>Oracle PL/SQL business logic to Python</strong>, tuning SQL queries, and deploying services on AWS (<strong style={{ color: 'var(--text-primary)' }}>Lambda, EC2, S3, RDS</strong>).
             </p>
 
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7' }}>
-              With hands-on frontend experience building responsive web modules in <strong style={{ color: 'white' }}>React</strong>, I also bring full-stack versatility to collaborate across the entire stack and deliver end-to-end features. I hold the <strong style={{ color: 'var(--accent-cyan-light)' }}>AWS Certified Solutions Architect (SAA-C03)</strong> certification.
+              With hands-on frontend experience building responsive web modules in <strong style={{ color: 'var(--text-primary)' }}>React</strong>, I also bring full-stack versatility to collaborate across the entire stack and deliver end-to-end features. I hold the <strong style={{ color: 'var(--accent-cyan-light)' }}>AWS Certified Solutions Architect (SAA-C03)</strong> certification.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '8px' }}>
@@ -202,7 +202,7 @@ export const About: React.FC = () => {
             <ShieldCheck size={20} color="white" />
           </div>
           <div>
-            <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white' }}>AWS Official Certifications</h2>
+            <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--text-primary)' }}>AWS Official Certifications</h2>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Industry-standard cloud architectural validation</p>
           </div>
         </div>
@@ -218,14 +218,14 @@ export const About: React.FC = () => {
               style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: '14px', borderLeft: '4px solid #ff9900' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span className="badge-pill" style={{ fontFamily: 'var(--font-mono)', background: 'rgba(255, 153, 0, 0.15)', color: '#ffb74d', borderColor: 'rgba(255, 153, 0, 0.3)' }}>
+                <span className="badge-pill badge-amber" style={{ fontFamily: 'var(--font-mono)' }}>
                   {cert.code}
                 </span>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{cert.issuer}</span>
               </div>
 
               <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white' }}>{cert.title}</h3>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>{cert.title}</h3>
               </div>
 
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
@@ -244,7 +244,7 @@ export const About: React.FC = () => {
               <Briefcase size={20} />
             </div>
             <div>
-              <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.8rem)', fontWeight: 800, color: 'white' }}>Work Experience (~3 Years)</h2>
+              <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.8rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Work Experience (~3 Years)</h2>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Professional software engineering roles, enterprise clients, and impact</p>
             </div>
           </div>
@@ -266,7 +266,7 @@ export const About: React.FC = () => {
                 <div className="glass-card timeline-card">
                   <div className="timeline-header" style={{ flexWrap: 'wrap', gap: '12px' }}>
                     <div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white' }}>{exp.role}</h3>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>{exp.role}</h3>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-indigo-light)', fontSize: '0.95rem', fontWeight: 600 }}>
                         <Building size={14} />
                         <span>{exp.company}</span>
@@ -331,7 +331,7 @@ export const About: React.FC = () => {
               <GraduationCap size={20} />
             </div>
             <div>
-              <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white' }}>Academic Education</h2>
+              <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Academic Education</h2>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Formal university degree credentials in Computer Applications</p>
             </div>
           </div>
@@ -353,12 +353,12 @@ export const About: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'white' }}>{acad.degree}</h3>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{acad.degree}</h3>
                   <p style={{ color: 'var(--accent-indigo-light)', fontSize: '0.88rem', fontWeight: 600 }}>{acad.institution}</p>
                 </div>
 
                 <div style={{ padding: '12px 14px', borderRadius: 'var(--radius-md)', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', fontSize: '0.82rem' }}>
-                  <strong style={{ color: 'white', display: 'block', marginBottom: '4px' }}>Degree Level: {acad.score}</strong>
+                  <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: '4px' }}>Degree Level: {acad.score}</strong>
                   <p style={{ color: 'var(--text-muted)' }}>{acad.highlights}</p>
                 </div>
               </motion.div>
@@ -375,7 +375,7 @@ export const About: React.FC = () => {
               <Cpu size={20} />
             </div>
             <div>
-              <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white' }}>Technical Skills Matrix</h2>
+              <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Technical Skills Matrix</h2>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Categorized breakdown of programming languages, frameworks, cloud, and tools</p>
             </div>
           </div>
@@ -387,7 +387,7 @@ export const About: React.FC = () => {
                 <div key={item.category} className="glass-card" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '10px' }}>
                     <Icon size={16} color="var(--accent-cyan-light)" />
-                    <h3 style={{ fontSize: '0.92rem', fontWeight: 800, color: 'white' }}>
+                    <h3 style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                       {item.category}
                     </h3>
                   </div>
@@ -422,7 +422,7 @@ export const About: React.FC = () => {
           <Rocket size={24} color="white" />
         </div>
         <div style={{ maxWidth: '640px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)', fontWeight: 800, color: 'white' }}>
+          <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)', fontWeight: 800, color: 'var(--text-primary)' }}>
             Ready to Build or Modernize Your Backend?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>

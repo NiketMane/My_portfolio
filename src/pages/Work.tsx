@@ -182,7 +182,7 @@ export const Work: React.FC = () => {
         <span className="badge-pill" style={{ width: 'fit-content' }}>
           <Github size={14} /> Backend & Cloud Repositories
         </span>
-        <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 800, color: 'white', lineHeight: '1.15' }}>
+        <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: '1.15' }}>
           Production Systems, <span className="gradient-text">FastAPI Services</span> & AWS Architecture
         </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.6' }}>
@@ -199,7 +199,7 @@ export const Work: React.FC = () => {
                 <Github size={20} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'white' }}>Live GitHub Sync Engine</h3>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)' }}>Live GitHub Sync Engine</h3>
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
                   Viewing repositories for <strong style={{ color: 'var(--accent-cyan-light)' }}>@{githubUser}</strong>
                 </p>

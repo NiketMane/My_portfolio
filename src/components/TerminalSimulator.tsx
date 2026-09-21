@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Terminal, Copy, Check, Play, FileCode, Server, Cloud, Info, CheckCircle2, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useFeatures } from '../context/FeatureContext';
 
 interface CodeSnippet {
   filename: string;
@@ -122,16 +123,16 @@ def lambda_handler(event, context):
   },
 };
 
-// Refined, Minimalist GitHub Dark Syntax Palette
-const highlightPythonLine = (line: string): React.ReactNode => {
+// Adaptive Syntax Palette: Clean Light IDE in Light Mode / Modern Cyber Palette in Dark Mode
+const highlightPythonLine = (line: string, isLight: boolean): React.ReactNode => {
   const trimmed = line.trimStart();
 
   // Comments & Docstrings (calm, understated slate)
   if (trimmed.startsWith('#')) {
-    return <span style={{ color: '#64748b', fontStyle: 'italic' }}>{line}</span>;
+    return <span style={{ color: isLight ? '#64748b' : '#64748b', fontStyle: 'italic' }}>{line}</span>;
   }
   if (trimmed.startsWith('"""') || trimmed.endsWith('"""') || trimmed.startsWith('*') || trimmed.startsWith('-')) {
-    return <span style={{ color: '#64748b', fontStyle: 'italic' }}>{line}</span>;
+    return <span style={{ color: isLight ? '#64748b' : '#64748b', fontStyle: 'italic' }}>{line}</span>;
   }
 
   // Tokenize line with regex
@@ -146,23 +147,23 @@ const highlightPythonLine = (line: string): React.ReactNode => {
     const key = `tok-${idx++}`;
 
     if (token.startsWith('"') || token.startsWith("'")) {
-      // Clean, soft warm tint for strings
-      tokens.push(<span key={key} style={{ color: '#fef3c7' }}>{token}</span>);
+      // Warm tint for strings
+      tokens.push(<span key={key} style={{ color: isLight ? '#b45309' : '#fef3c7' }}>{token}</span>);
     } else if (/^@/.test(token)) {
       // Cyan accent for decorators
-      tokens.push(<span key={key} style={{ color: '#38bdf8', fontWeight: 600 }}>{token}</span>);
+      tokens.push(<span key={key} style={{ color: isLight ? '#0284c7' : '#38bdf8', fontWeight: 600 }}>{token}</span>);
     } else if (/^(async|def|from|import|class|return|with|for|in|as|if|else|lambda)$/.test(token)) {
-      // Soft modern indigo for language keywords
-      tokens.push(<span key={key} style={{ color: '#818cf8', fontWeight: 600 }}>{token}</span>);
+      // Vibrant indigo for language keywords
+      tokens.push(<span key={key} style={{ color: isLight ? '#4f46e5' : '#818cf8', fontWeight: 600 }}>{token}</span>);
     } else if (/^(FastAPI|Depends|HTTPException|status|Session|BaseModel|EmailStr|List|text|boto3|json|os|pd|MaintenanceModel)$/.test(token)) {
-      // Crisp white with subtle bolding for key types
-      tokens.push(<span key={key} style={{ color: '#ffffff', fontWeight: 600 }}>{token}</span>);
+      // Crisp text with bolding for key types
+      tokens.push(<span key={key} style={{ color: isLight ? '#0f172a' : '#ffffff', fontWeight: 700 }}>{token}</span>);
     } else if (/^\d+(\.\d+)?$/.test(token)) {
-      // Subtle cyan-ice for numbers
-      tokens.push(<span key={key} style={{ color: '#7dd3fc' }}>{token}</span>);
+      // Numbers
+      tokens.push(<span key={key} style={{ color: isLight ? '#2563eb' : '#7dd3fc' }}>{token}</span>);
     } else {
-      // Neutral crisp slate for standard variables & symbols
-      tokens.push(<span key={key} style={{ color: '#cbd5e1' }}>{token}</span>);
+      // Standard variables & symbols
+      tokens.push(<span key={key} style={{ color: isLight ? '#334155' : '#cbd5e1' }}>{token}</span>);
     }
   }
 
@@ -170,6 +171,9 @@ const highlightPythonLine = (line: string): React.ReactNode => {
 };
 
 export const TerminalSimulator: React.FC = () => {
+  const { theme } = useFeatures();
+  const isLight = theme === 'light';
+
   const [activeTab, setActiveTab] = useState<'fastapi' | 'plsql' | 'aws'>('fastapi');
   const [copied, setCopied] = useState(false);
   const [isRunningTest, setIsRunningTest] = useState(false);
@@ -195,7 +199,7 @@ export const TerminalSimulator: React.FC = () => {
   };
 
   return (
-    <div className="terminal-wrapper" style={{ boxShadow: '0 20px 50px -10px rgba(0,0,0,0.8), 0 0 30px rgba(99, 102, 241, 0.15)' }}>
+    <div className="terminal-wrapper">
       {/* 1. Title Bar */}
       <div className="terminal-header" style={{ flexWrap: 'wrap', gap: '8px' }}>
         <div className="terminal-dots" style={{ minWidth: 0 }}>
@@ -265,7 +269,7 @@ export const TerminalSimulator: React.FC = () => {
             >
               <Icon size={15} color={tab.color} style={{ flexShrink: 0 }} />
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-                <span className="terminal-tab-filename" style={{ fontWeight: isActive ? 700 : 500, color: isActive ? '#fff' : '#94a3b8' }}>{tab.filename}</span>
+                <span className="terminal-tab-filename">{tab.filename}</span>
                 <span className="terminal-tab-badge" style={{ color: tab.color, opacity: isActive ? 1 : 0.7 }}>{tab.badge}</span>
               </div>
             </button>
@@ -277,9 +281,7 @@ export const TerminalSimulator: React.FC = () => {
       <div
         className="terminal-info-banner"
         style={{
-          background: 'rgba(15, 23, 42, 0.85)',
           padding: '12px 20px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
           alignItems: 'flex-start',
           gap: '12px',
@@ -299,19 +301,19 @@ export const TerminalSimulator: React.FC = () => {
         </div>
         <div style={{ minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            <strong className="terminal-info-title" style={{ color: 'white' }}>{currentSnippet.title}</strong>
+            <strong className="terminal-info-title">{currentSnippet.title}</strong>
             <span className="terminal-info-badge">
               {currentSnippet.language}
             </span>
           </div>
-          <p className="terminal-info-desc" style={{ color: 'var(--text-secondary)', margin: '4px 0 0 0' }}>
+          <p className="terminal-info-desc" style={{ margin: '4px 0 0 0' }}>
             {currentSnippet.description}
           </p>
         </div>
       </div>
 
       {/* 4. Code Body with Line Numbers & Syntax Highlighting */}
-      <div className="terminal-body" style={{ padding: '20px', overflowX: 'auto', background: '#070b16', WebkitOverflowScrolling: 'touch' }}>
+      <div className="terminal-body" style={{ padding: '20px', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
         <div className="terminal-code-table" style={{ display: 'table', width: '100%', fontFamily: 'var(--font-mono)' }}>
           {lines.map((line, i) => (
             <div key={i} style={{ display: 'table-row' }}>
@@ -319,7 +321,6 @@ export const TerminalSimulator: React.FC = () => {
                 className="terminal-line-num"
                 style={{
                   display: 'table-cell',
-                  color: 'rgba(148, 163, 184, 0.35)',
                   textAlign: 'right',
                   userSelect: 'none',
                   verticalAlign: 'top',
@@ -328,7 +329,7 @@ export const TerminalSimulator: React.FC = () => {
                 {String(i + 1).padStart(2, '0')}
               </span>
               <span className="terminal-code-cell" style={{ display: 'table-cell', whiteSpace: 'pre', verticalAlign: 'top' }}>
-                {highlightPythonLine(line)}
+                {highlightPythonLine(line, isLight)}
               </span>
             </div>
           ))}
@@ -367,11 +368,11 @@ export const TerminalSimulator: React.FC = () => {
       </div>
 
       {/* 6. Footer Status Bar */}
-      <div className="terminal-footer" style={{ padding: '10px 18px', fontSize: '0.78rem', background: '#0a0e1c', flexWrap: 'wrap', gap: '14px' }}>
+      <div className="terminal-footer" style={{ padding: '10px 18px', fontSize: '0.78rem', flexWrap: 'wrap', gap: '14px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-emerald)' }} />
-            <span style={{ color: 'white', fontFamily: 'var(--font-mono)' }}>Production Ready</span>
+            <span className="terminal-footer-status-text" style={{ fontFamily: 'var(--font-mono)' }}>Production Ready</span>
           </span>
           <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan-light)' }}>UTF-8 • LF • Python 3</span>
         </div>

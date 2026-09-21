@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
               <div className="brand-icon" style={{ width: '36px', height: '36px' }}>
                 <Code2 size={20} />
               </div>
-              <span style={{ fontWeight: 800, fontSize: '1.2rem', color: 'white' }}>
+              <span style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--text-primary)' }}>
                 Niket Mane • Backend & Cloud
               </span>
             </div>

@@ -34,12 +34,12 @@ export const Contact: React.FC = () => {
           </span>
         </div>
 
-        <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 800, color: 'white', lineHeight: '1.15' }}>
+        <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: '1.15' }}>
           Let's Build Resilient <span className="gradient-text">Backend Systems</span> Together
         </h1>
 
         <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.6' }}>
-          Whether you're looking for a <strong style={{ color: 'white' }}>Python Backend Developer</strong>, need guidance on modernizing legacy Oracle PL/SQL packages, or want to engineer cloud infrastructure on AWS, feel free to reach out directly or send a message below.
+          Whether you're looking for a <strong style={{ color: 'var(--text-primary)' }}>Python Backend Developer</strong>, need guidance on modernizing legacy Oracle PL/SQL packages, or want to engineer cloud infrastructure on AWS, feel free to reach out directly or send a message below.
         </p>
       </motion.div>
 
@@ -63,7 +63,7 @@ export const Contact: React.FC = () => {
             <Clock size={20} />
           </div>
           <div>
-            <strong style={{ color: 'white', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Quick Turnaround</strong>
+            <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Quick Turnaround</strong>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Direct inquiries are typically responded to within 24 hours.</p>
           </div>
         </div>
@@ -73,7 +73,7 @@ export const Contact: React.FC = () => {
             <Briefcase size={20} />
           </div>
           <div>
-            <strong style={{ color: 'white', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Open for Opportunities</strong>
+            <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Open for Opportunities</strong>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Full-time Python Backend & AWS Cloud engineering positions.</p>
           </div>
         </div>
@@ -83,7 +83,7 @@ export const Contact: React.FC = () => {
             <MapPin size={20} />
           </div>
           <div>
-            <strong style={{ color: 'white', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Location & Mobility</strong>
+            <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Location & Mobility</strong>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Bangalore, India • Open to Remote Worldwide & Hybrid.</p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export const Contact: React.FC = () => {
             <Cpu size={20} />
           </div>
           <div>
-            <strong style={{ color: 'white', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Core Tech Focus</strong>
+            <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Core Tech Focus</strong>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Python, FastAPI, SQLAlchemy, AWS, Oracle PL/SQL, PostgreSQL.</p>
           </div>
         </div>

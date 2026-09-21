@@ -140,7 +140,7 @@ export const ContactForm: React.FC = () => {
       <div style={{ marginBottom: '24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
           <MailCheck size={20} color="var(--accent-emerald)" />
-          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white' }}>Send Me a Message</h3>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>Send Me a Message</h3>
         </div>
         <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
           Fill out the form below to deliver your inquiry directly to my email inbox.

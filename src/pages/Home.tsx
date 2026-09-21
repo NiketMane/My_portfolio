@@ -46,17 +46,7 @@ export const Home: React.FC = () => {
   return (
     <div className="home-container" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '60px' }}>
       {/* Hero Section */}
-      <section
-        className="hero-wrapper"
-        style={{
-          position: 'relative',
-          padding: '100px 0 60px 0',
-          background:
-            'radial-gradient(ellipse 75% 60% at 50% 10%, rgba(99, 102, 241, 0.14), transparent 70%), linear-gradient(to bottom, rgba(6, 8, 18, 0.3), rgba(6, 8, 18, 0.75))',
-          borderBottom: '1px solid var(--border-subtle)',
-          width: '100%',
-        }}
-      >
+      <section className="hero-wrapper">
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="hero-content">
             {/* Status Badge */}
@@ -65,8 +55,13 @@ export const Home: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               className="badge-pill hero-status-pill"
             >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-emerald)', flexShrink: 0 }} />
-              <span>Available for Python Backend & AWS Cloud Roles • Bangalore, India</span>
+              <span className="status-dot-pulse">
+                <span className="status-dot-core" />
+                <span className="status-dot-ring" />
+              </span>
+              <span>Available for Python Backend & AWS Cloud Roles</span>
+              <span className="hero-status-divider">|</span>
+              <span>Bangalore, India</span>
             </motion.div>
 
             {/* Greeting */}
@@ -107,7 +102,7 @@ export const Home: React.FC = () => {
               className="hero-subtitle"
               style={{ marginTop: '12px', maxWidth: '760px' }}
             >
-              Backend Developer with <strong style={{ color: 'white' }}>~3 years of experience</strong> building APIs with <strong style={{ color: 'white' }}>FastAPI</strong> & <strong style={{ color: 'white' }}>SQLAlchemy</strong>, migrating legacy <strong style={{ color: 'var(--accent-cyan-light)' }}>Oracle PL/SQL to Python</strong>, and deploying on <strong style={{ color: 'white' }}>AWS</strong>—with secondary full-stack capabilities in <strong style={{ color: 'white' }}>React</strong>.
+              Backend Developer with <strong style={{ color: 'var(--text-primary)' }}>~3 years of experience</strong> building APIs with <strong style={{ color: 'var(--text-primary)' }}>FastAPI</strong> & <strong style={{ color: 'var(--text-primary)' }}>SQLAlchemy</strong>, migrating legacy <strong style={{ color: 'var(--text-primary)' }}>Oracle PL/SQL to Python</strong>, and deploying on <strong style={{ color: 'var(--text-primary)' }}>AWS</strong>—with secondary full-stack capabilities in <strong style={{ color: 'var(--text-primary)' }}>React</strong>.
             </motion.p>
 
             {/* Action Buttons */}
@@ -183,7 +178,7 @@ export const Home: React.FC = () => {
             <span className="badge-pill">
               <Cpu size={14} /> Core Competencies
             </span>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'white' }}>Technical Skillset & Stack</h2>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Technical Skillset & Stack</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
               Specialized in modern Python backend frameworks, database optimization, cloud platforms, and automated testing.
             </p>
@@ -237,7 +232,7 @@ export const Home: React.FC = () => {
               <span className="badge-pill" style={{ width: 'fit-content' }}>
                 <Code2 size={14} /> Highlighted Engineering Work
               </span>
-              <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 2rem)', fontWeight: 800, color: 'white' }}>
+              <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 2rem)', fontWeight: 800, color: 'var(--text-primary)' }}>
                 Explore Backend Modernization & Cloud Architecture
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
@@ -259,7 +254,7 @@ export const Home: React.FC = () => {
           <span className="badge-pill">
             <Sparkles size={14} /> Direct Inquiries
           </span>
-          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'white' }}>Let's Discuss Backend & Cloud Engineering</h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Let's Discuss Backend & Cloud Engineering</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
             Available for full-time opportunities, consulting roles, or technical collaborations in Bangalore or Remote.
           </p>
