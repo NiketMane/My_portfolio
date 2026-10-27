@@ -127,10 +127,8 @@ export const About: React.FC = () => {
       icon: Database,
       skills: [
         'Oracle PL/SQL',
-        'PostgreSQL',
         'MySQL',
         'SQL Query Optimization',
-        'RDBMS Design',
         'API Latency Optimization',
         'Root-Cause Troubleshooting',
       ],
@@ -146,7 +144,7 @@ export const About: React.FC = () => {
       skills: ['Pytest', 'Postman', 'Swagger UI / OpenAPI', 'Pandas', 'Git', 'GitHub Copilot', 'Jira', 'Agile / Scrum'],
     },
     {
-      category: 'Frontend Technologies (Secondary)',
+      category: 'Frontend & Full Stack Technologies',
       icon: Sparkles,
       skills: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Bootstrap', 'REST APIs'],
     },
@@ -166,20 +164,20 @@ export const About: React.FC = () => {
                 <Award size={14} /> AWS SAA-C03 Certified
               </span>
               <span className="badge-pill" style={{ color: 'var(--accent-emerald-light)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
-                ~3 Years Backend Experience
+                3 Years Experience
               </span>
             </div>
 
             <h1 className="about-banner-title">
-              Engineering resilient backend services with <span className="gradient-text">Python, FastAPI, and AWS.</span>
+              Engineering resilient backend & full stack services with <span className="gradient-text">Python, FastAPI, React, and AWS.</span>
             </h1>
 
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.02rem', lineHeight: '1.7' }}>
-              I am a <strong style={{ color: 'var(--text-primary)' }}>Python Backend Developer</strong> with <strong style={{ color: 'var(--text-primary)' }}>~3 years of experience</strong> building reliable RESTful APIs and backend services using <strong style={{ color: 'var(--text-primary)' }}>FastAPI</strong> and <strong style={{ color: 'var(--text-primary)' }}>SQLAlchemy ORM</strong>. Based in Bangalore, India, my primary focus is backend engineering—migrating legacy <strong style={{ color: 'var(--text-primary)' }}>Oracle PL/SQL business logic to Python</strong>, tuning SQL queries, and deploying services on AWS (<strong style={{ color: 'var(--text-primary)' }}>Lambda, EC2, S3, RDS</strong>).
+              I am a <strong style={{ color: 'var(--text-primary)' }}>Python Backend & Full Stack Developer</strong> with <strong style={{ color: 'var(--text-primary)' }}>3 years of experience</strong> building reliable RESTful APIs and backend services using <strong style={{ color: 'var(--text-primary)' }}>FastAPI</strong> and <strong style={{ color: 'var(--text-primary)' }}>SQLAlchemy ORM</strong>. Based in Bangalore, India, my primary focus is backend and full stack engineering—migrating legacy <strong style={{ color: 'var(--text-primary)' }}>Oracle PL/SQL business logic to Python</strong>, tuning SQL queries, and deploying services on AWS (<strong style={{ color: 'var(--text-primary)' }}>Lambda, EC2, S3, RDS</strong>).
             </p>
 
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.7' }}>
-              With hands-on frontend experience building responsive web modules in <strong style={{ color: 'var(--text-primary)' }}>React</strong>, I also bring full-stack versatility to collaborate across the entire stack and deliver end-to-end features. I hold the <strong style={{ color: 'var(--accent-cyan-light)' }}>AWS Certified Solutions Architect (SAA-C03)</strong> certification.
+              With hands-on frontend experience building responsive web modules in <strong style={{ color: 'var(--text-primary)' }}>React</strong>, I bring full-stack versatility to collaborate across the entire stack and deliver end-to-end features. I hold the <strong style={{ color: 'var(--accent-cyan-light)' }}>AWS Certified Solutions Architect (SAA-C03)</strong> certification.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '8px' }}>
@@ -244,7 +242,7 @@ export const About: React.FC = () => {
               <Briefcase size={20} />
             </div>
             <div>
-              <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.8rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Work Experience (~3 Years)</h2>
+              <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.8rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Work Experience (3 Years)</h2>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Professional software engineering roles, enterprise clients, and impact</p>
             </div>
           </div>

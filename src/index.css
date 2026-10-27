@@ -998,7 +998,7 @@ input:checked + .slider:before {
 /* Skills Grid */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 20px;
 }
 
@@ -1006,8 +1006,7 @@ input:checked + .slider:before {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
 }
 
 .skill-header {

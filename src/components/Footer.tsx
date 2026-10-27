@@ -17,11 +17,11 @@ export const Footer: React.FC = () => {
                 <Code2 size={20} />
               </div>
               <span style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--text-primary)' }}>
-                Niket Mane • Backend & Cloud
+                Niket Mane • Backend & Full Stack
               </span>
             </div>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', maxWidth: '480px' }}>
-              Python Backend Developer (~3 Years Experience) and AWS Certified Solutions Architect (SAA-C03). Specialized in FastAPI, SQLAlchemy ORM, Oracle PL/SQL migration, SQL performance tuning, and AWS cloud engineering.
+              Python Backend & Full Stack Developer (3 Years Experience) with AWS (SAA-C03 Certified). Specialized in FastAPI, SQLAlchemy ORM, Oracle PL/SQL migration, SQL performance tuning, and React development.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '8px' }}>
               <a

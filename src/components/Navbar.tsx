@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
                 </span>
               )}
             </div>
-            <span className="brand-subtitle">Python Backend & Cloud Developer</span>
+            <span className="brand-subtitle">Python Backend & Full Stack Developer</span>
           </div>
         </NavLink>
 

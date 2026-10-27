@@ -74,7 +74,7 @@ export const Contact: React.FC = () => {
           </div>
           <div>
             <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Open for Opportunities</strong>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Full-time Python Backend & AWS Cloud engineering positions.</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Full-time Python Backend & Full Stack developer roles (with AWS).</p>
           </div>
         </div>
 
@@ -94,7 +94,7 @@ export const Contact: React.FC = () => {
           </div>
           <div>
             <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', display: 'block', marginBottom: '4px' }}>Core Tech Focus</strong>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Python, FastAPI, SQLAlchemy, AWS, Oracle PL/SQL, PostgreSQL.</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Python, FastAPI, SQLAlchemy, AWS, Oracle PL/SQL, MySQL, React.</p>
           </div>
         </div>
       </motion.div>

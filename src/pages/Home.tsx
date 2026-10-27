@@ -33,14 +33,13 @@ export const Home: React.FC = () => {
   };
 
   const skills = [
-    { name: 'FastAPI & REST API Design', category: 'Backend Framework', level: 'Production Expert', icon: Zap, color: 'var(--accent-emerald-light)', progress: 95 },
-    { name: 'Python & SQLAlchemy ORM', category: 'Core Language & ORM', level: 'Senior Specialist', icon: Terminal, color: 'var(--accent-indigo-light)', progress: 94 },
-    { name: 'AWS Cloud Ecosystem', category: 'Cloud Architecture', level: 'AWS Certified SAA-C03', icon: Cloud, color: 'var(--accent-cyan-light)', progress: 90 },
-    { name: 'Oracle PL/SQL & Migration', category: 'Database Systems', level: '100+ Procedures Migrated', icon: Database, color: 'var(--accent-purple)', progress: 92 },
-    { name: 'SQL Query & Latency Tuning', category: 'Performance Tuning', level: 'Advanced Optimization', icon: Cpu, color: 'var(--accent-rose)', progress: 88 },
-    { name: 'Pandas & Data Processing', category: 'Data Workflows', level: '25-30% Latency Cut', icon: Layers, color: 'var(--accent-amber)', progress: 86 },
-    { name: 'Pytest & Postman Testing', category: 'Testing & Reliability', level: '100+ Endpoints Tested', icon: CheckCircle2, color: 'var(--accent-emerald)', progress: 90 },
-    { name: 'React.js & Frontend (Secondary)', category: 'UI Development', level: 'LMS & HRMS Experience', icon: Code2, color: 'var(--accent-cyan)', progress: 80 },
+    { name: 'FastAPI & REST API Design', category: 'Backend Framework', level: 'Production Expert', icon: Zap, color: 'var(--accent-emerald-light)' },
+    { name: 'Python & SQLAlchemy ORM', category: 'Core Language & ORM', level: 'Senior Specialist', icon: Terminal, color: 'var(--accent-indigo-light)' },
+    { name: 'Oracle PL/SQL & Migration', category: 'Database Systems', level: '100+ Procedures Migrated', icon: Database, color: 'var(--accent-purple)' },
+    { name: 'SQL Query & Latency Tuning', category: 'Performance Tuning', level: 'Advanced Optimization', icon: Cpu, color: 'var(--accent-rose)' },
+    { name: 'Pandas & Data Processing', category: 'Data Workflows', level: '25-30% Latency Cut', icon: Layers, color: 'var(--accent-amber)' },
+    { name: 'Pytest & Postman Testing', category: 'Testing & Reliability', level: '100+ Endpoints Tested', icon: CheckCircle2, color: 'var(--accent-emerald)' },
+    { name: 'React.js & Frontend Development', category: 'UI Development', level: 'LMS & HRMS Experience', icon: Code2, color: 'var(--accent-cyan)' },
   ];
 
   return (
@@ -59,7 +58,7 @@ export const Home: React.FC = () => {
                 <span className="status-dot-core" />
                 <span className="status-dot-ring" />
               </span>
-              <span>Available for Python Backend & AWS Cloud Roles</span>
+              <span>Available for Python Backend & Full Stack Developer Roles (with AWS)</span>
               <span className="hero-status-divider">|</span>
               <span>Bangalore, India</span>
             </motion.div>
@@ -91,7 +90,7 @@ export const Home: React.FC = () => {
               transition={{ delay: 0.3 }}
               className="hero-subtitle-badge"
             >
-              PYTHON BACKEND DEVELOPER • AWS CERTIFIED SOLUTIONS ARCHITECT
+              PYTHON BACKEND & FULL STACK DEVELOPER • AWS CERTIFIED SOLUTIONS ARCHITECT
             </motion.h4>
 
             {/* Bio Description */}
@@ -102,7 +101,7 @@ export const Home: React.FC = () => {
               className="hero-subtitle"
               style={{ marginTop: '12px', maxWidth: '760px' }}
             >
-              Backend Developer with <strong style={{ color: 'var(--text-primary)' }}>~3 years of experience</strong> building APIs with <strong style={{ color: 'var(--text-primary)' }}>FastAPI</strong> & <strong style={{ color: 'var(--text-primary)' }}>SQLAlchemy</strong>, migrating legacy <strong style={{ color: 'var(--text-primary)' }}>Oracle PL/SQL to Python</strong>, and deploying on <strong style={{ color: 'var(--text-primary)' }}>AWS</strong>—with secondary full-stack capabilities in <strong style={{ color: 'var(--text-primary)' }}>React</strong>.
+              Backend & Full Stack Developer with <strong style={{ color: 'var(--text-primary)' }}>3 years of experience</strong> building APIs with <strong style={{ color: 'var(--text-primary)' }}>FastAPI</strong> & <strong style={{ color: 'var(--text-primary)' }}>SQLAlchemy</strong>, migrating legacy <strong style={{ color: 'var(--text-primary)' }}>Oracle PL/SQL to Python</strong>, and deploying with <strong style={{ color: 'var(--text-primary)' }}>AWS</strong>—paired with full-stack capabilities in <strong style={{ color: 'var(--text-primary)' }}>React</strong>.
             </motion.p>
 
             {/* Action Buttons */}
@@ -152,8 +151,8 @@ export const Home: React.FC = () => {
         <section className="container">
           <div className="stats-grid">
             <div className="glass-card stat-card">
-              <span className="stat-number gradient-text">~3 Years</span>
-              <span className="stat-label">Backend & Cloud Experience</span>
+              <span className="stat-number gradient-text">3 Years</span>
+              <span className="stat-label">Backend & Full Stack Experience</span>
             </div>
             <div className="glass-card stat-card">
               <span className="stat-number" style={{ color: 'var(--accent-cyan)' }}>100+</span>
@@ -180,7 +179,7 @@ export const Home: React.FC = () => {
             </span>
             <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Technical Skillset & Stack</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-              Specialized in modern Python backend frameworks, database optimization, cloud platforms, and automated testing.
+              Specialized in modern Python backend frameworks, database optimization, full stack development with React, and automated testing.
             </p>
           </div>
 
@@ -206,16 +205,6 @@ export const Home: React.FC = () => {
                   <div>
                     <h3 className="skill-title">{skill.name}</h3>
                     <p className="skill-level">{skill.level}</p>
-                  </div>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
-                      <span>Proficiency</span>
-                      <span>{skill.progress}%</span>
-                    </div>
-                    <div className="skill-progress-bar">
-                      <div className="skill-progress-fill" style={{ width: `${skill.progress}%` }} />
-                    </div>
                   </div>
                 </motion.div>
               );
@@ -254,7 +243,7 @@ export const Home: React.FC = () => {
           <span className="badge-pill">
             <Sparkles size={14} /> Direct Inquiries
           </span>
-          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Let's Discuss Backend & Cloud Engineering</h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Let's Discuss Backend & Full Stack Engineering</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
             Available for full-time opportunities, consulting roles, or technical collaborations in Bangalore or Remote.
           </p>
