@@ -22,14 +22,10 @@ import {
 import { motion } from 'framer-motion';
 
 export const Home: React.FC = () => {
-  const { features, resumeConfig } = useFeatures();
+  const { features, openResumeModal } = useFeatures();
 
   const handleResumeClick = () => {
-    if (resumeConfig.mode === 'drive') {
-      window.open(resumeConfig.driveUrl, '_blank');
-    } else {
-      window.open(resumeConfig.fileUrl, '_blank');
-    }
+    openResumeModal();
   };
 
   const skills = [
@@ -40,6 +36,7 @@ export const Home: React.FC = () => {
     { name: 'Pandas & Data Processing', category: 'Data Workflows', level: '25-30% Latency Cut', icon: Layers, color: 'var(--accent-amber)' },
     { name: 'Pytest & Postman Testing', category: 'Testing & Reliability', level: '100+ Endpoints Tested', icon: CheckCircle2, color: 'var(--accent-emerald)' },
     { name: 'React.js & Frontend Development', category: 'UI Development', level: 'LMS & HRMS Experience', icon: Code2, color: 'var(--accent-cyan)' },
+    { name: 'AWS Cloud Architecture', category: 'Solutions Architect (SAA-C03)', level: 'Lambda, EC2, S3, RDS, Cognito', icon: Cloud, color: 'var(--accent-amber)' },
   ];
 
   return (
@@ -128,8 +125,8 @@ export const Home: React.FC = () => {
               )}
 
               <button onClick={handleResumeClick} className="btn-secondary hero-btn-main">
-                <span className="btn-text-desktop">{resumeConfig.mode === 'drive' ? 'View Resume' : 'Resume PDF'}</span>
-                <span className="btn-text-mobile">{resumeConfig.mode === 'drive' ? 'Resume' : 'Resume PDF'}</span>
+                <span className="btn-text-desktop">Resumes (Full Stack / Backend)</span>
+                <span className="btn-text-mobile">Resumes</span>
               </button>
             </motion.div>
           </div>

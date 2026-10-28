@@ -292,19 +292,46 @@ Complete record of all features, components, backend services, configurations, a
 
 ---
 
+---
+
+### 14. 📄 Resume Synchronization & Dual Track Recruiter Modal (`ResumeModal.tsx`, `About.tsx`, `Home.tsx`, `Admin.tsx`, `public/`)
+- **Direct PDF Asset Integration (`public/`)**:
+  - Copied both latest official resume PDFs directly from `E:\NICK\PROFESSIONAL\Resume\UPDATED\`:
+    - `public/Niket_Mane_Resume_Full_Stack.pdf` (189 KB)
+    - `public/Niket_Mane_Resume_Python_Backend.pdf` (189 KB)
+    - `public/resume.pdf` (Default fallback copy)
+- **Recruiter Dual Profile Resume Dialog (`src/components/ResumeModal.tsx`)**:
+  - Global, interactive dialog allowing recruiters and hiring managers to choose between:
+    1. **Full Stack Developer** (Python & React.js, FastAPI, SQL, AWS SAA-C03) — Download PDF / View in New Tab.
+    2. **Python Backend Developer** (FastAPI, SQLAlchemy, Oracle PL/SQL, AWS Cloud) — Download PDF / View in New Tab.
+  - Features 1-click **Download Both (PDFs)** action, Google Drive link backup option, keyboard `Esc` listener, and locked body scroll.
+- **Experience Timeline & Profile Content Synchronization (`About.tsx`)**:
+  - Synchronized experience timeline to match the latest resume:
+    - **Turnberry Solutions (Schreiber Foods)**: Added developer mentoring & code review optimization bullet.
+    - **Freelance Developer (Dec 2023 – Jul 2024, Self-Employed)**: Added 2–3 freelance full-stack client deliverables, FastAPI & PostgreSQL backends, and AWS deployments.
+    - **Proiuvo Pvt Ltd**: Added **MYHRMSPRO** standalone marketing SPA deliverable.
+  - Added official **React Developer Certificate** (Edubuddy Schools) alongside **AWS SAA-C03** and **AWS CLF-C02**.
+  - Added highlighted **Facility Maintenance Request Management System (AWS Full Stack)** architecture showcase.
+  - Expanded Technical Matrix with **Tailwind CSS**, **PostgreSQL**, **RDS**, **Cognito**, and **CloudWatch**.
+- **Admin Resume Management**:
+  - Added live preview/download test cards for both PDF profiles and a one-click button to launch and test the recruiter dialog.
+
+---
+
 ## 📁 Key File Locations
 
-- 🌌 Tech Canvas Background: [`src/components/TechBackground.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/TechBackground.tsx)
-- ⚙️ Feature & Security Config: [`src/config/features.ts`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/config/features.ts)
-- 🔒 Feature Context Provider: [`src/context/FeatureContext.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/context/FeatureContext.tsx)
-- 🚀 Express Backend Server: [`server/server.js`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/server/server.js)
-- ⚡ Vercel Serverless Function: [`api/contact.js`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/api/contact.js)
-- 🌐 Vercel Routing Configuration: [`vercel.json`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/vercel.json)
-- 🚫 Git Exclusion Rules: [`.gitignore`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/.gitignore)
-- 🛠️ Dev Server Runner: [`scripts/start.js`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/scripts/start.js)
-- 🎨 Design System CSS: [`src/index.css`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/index.css)
-- 🎬 Opening Intro Animation: [`src/components/OpeningIntro.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/OpeningIntro.tsx)
-- 💻 IDE Terminal Simulator: [`src/components/TerminalSimulator.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/TerminalSimulator.tsx)
-- 📬 Contact Form & Box: [`ContactForm.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/ContactForm.tsx), [`ContactBox.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/components/ContactBox.tsx)
-- 📄 Pages: [`Home.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Home.tsx), [`About.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/About.tsx), [`Work.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Work.tsx), [`Contact.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Contact.tsx), [`Admin.tsx`](file:///e:/NICK/PROFESSIONAL/Mini_projects/My_Portfolio/src/pages/Admin.tsx)
+- 🌌 Tech Canvas Background: [`src/components/TechBackground.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/components/TechBackground.tsx)
+- ⚙️ Feature & Security Config: [`src/config/features.ts`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/config/features.ts)
+- 🔒 Feature Context Provider: [`src/context/FeatureContext.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/context/FeatureContext.tsx)
+- 📑 Recruiter Resume Modal: [`src/components/ResumeModal.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/components/ResumeModal.tsx)
+- 🚀 Express Backend Server: [`server/server.js`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/server/server.js)
+- ⚡ Vercel Serverless Function: [`api/contact.js`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/api/contact.js)
+- 🌐 Vercel Routing Configuration: [`vercel.json`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/vercel.json)
+- 🚫 Git Exclusion Rules: [`.gitignore`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/.gitignore)
+- 🛠️ Dev Server Runner: [`scripts/start.js`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/scripts/start.js)
+- 🎨 Design System CSS: [`src/index.css`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/index.css)
+- 🎬 Opening Intro Animation: [`src/components/OpeningIntro.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/components/OpeningIntro.tsx)
+- 💻 IDE Terminal Simulator: [`src/components/TerminalSimulator.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/components/TerminalSimulator.tsx)
+- 📬 Contact Form & Box: [`ContactForm.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/components/ContactForm.tsx), [`ContactBox.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/components/ContactBox.tsx)
+- 📄 Pages: [`Home.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/pages/Home.tsx), [`About.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/pages/About.tsx), [`Work.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/pages/Work.tsx), [`Contact.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/pages/Contact.tsx), [`Admin.tsx`](file:///e:/NICK/PROFESSIONAL/Portfolios/My_Portfolio/src/pages/Admin.tsx)
 

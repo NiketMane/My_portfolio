@@ -26,6 +26,9 @@ interface FeatureContextType {
 
   resumeConfig: ResumeConfig;
   updateResumeConfig: (config: Partial<ResumeConfig>) => void;
+  isResumeModalOpen: boolean;
+  openResumeModal: () => void;
+  closeResumeModal: () => void;
 
   adminSecurity: AdminSecurityConfig;
   updateAdminSecurity: (config: Partial<AdminSecurityConfig>) => void;
@@ -42,9 +45,13 @@ const FeatureContext = createContext<FeatureContextType | undefined>(undefined);
 export const FeatureProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [features, setFeatures] = useState<FeatureFlags>(DEFAULT_FEATURES);
   const [resumeConfig, setResumeConfig] = useState<ResumeConfig>(DEFAULT_RESUME_CONFIG);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState<boolean>(false);
   const [adminSecurity, setAdminSecurity] = useState<AdminSecurityConfig>(DEFAULT_ADMIN_SECURITY);
   const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
   const [theme, setTheme] = useState<ThemeMode>('dark');
+
+  const openResumeModal = () => setIsResumeModalOpen(true);
+  const closeResumeModal = () => setIsResumeModalOpen(false);
 
   useEffect(() => {
     setFeatures(getFeatureFlags());
@@ -119,6 +126,9 @@ export const FeatureProvider: React.FC<{ children: React.ReactNode }> = ({ child
         resetAllFeatures,
         resumeConfig,
         updateResumeConfig,
+        isResumeModalOpen,
+        openResumeModal,
+        closeResumeModal,
         adminSecurity,
         updateAdminSecurity,
         isUnlocked,

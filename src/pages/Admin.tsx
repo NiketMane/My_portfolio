@@ -20,6 +20,8 @@ import {
   CheckCircle2,
   KeyRound,
   EyeOff,
+  ExternalLink,
+  Download,
 } from 'lucide-react';
 
 interface StoredMessage {
@@ -39,6 +41,7 @@ export const Admin: React.FC = () => {
     resetAllFeatures,
     resumeConfig,
     updateResumeConfig,
+    openResumeModal,
     adminSecurity,
     updateAdminSecurity,
     isUnlocked,
@@ -345,11 +348,119 @@ export const Admin: React.FC = () => {
         {/* TAB 2: RESUME MANAGER (Google Drive Link vs Direct File Upload) */}
         {activeTab === 'resume' && (
           <div className="glass-card" style={{ padding: '32px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
-            <div>
-              <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>Resume Dispatch Settings</h2>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-                Configure whether visitors view your Google Drive link or download a direct PDF uploaded file when clicking "Resume".
-              </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+              <div>
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>Resume Dispatch & Profile Settings</h2>
+                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0 }}>
+                  Manage the official PDF resumes served to recruiters and visitors across the website.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={openResumeModal}
+                className="btn-primary"
+                style={{ padding: '8px 18px', fontSize: '0.86rem' }}
+              >
+                <FileText size={16} />
+                <span>Test Recruiter Resume Dialog</span>
+              </button>
+            </div>
+
+            {/* Currently Active Local Resume Files */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+              <div
+                className="glass-card"
+                style={{
+                  padding: '18px',
+                  borderRadius: '14px',
+                  border: '1px solid rgba(99, 102, 241, 0.3)',
+                  background: 'rgba(99, 102, 241, 0.05)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span className="badge-pill badge-fullstack" style={{ fontSize: '0.72rem' }}>Full Stack Track</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>189 KB PDF</span>
+                </div>
+                <div>
+                  <strong style={{ color: 'var(--text-primary)', fontSize: '0.98rem', display: 'block' }}>
+                    Niket_Mane_Resume_Full_Stack.pdf
+                  </strong>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                    React.js • Python • FastAPI • SQL • AWS SAA-C03
+                  </span>
+                </div>
+                <div style={{ display: 'flex', gap: '8px', marginTop: 'auto' }}>
+                  <a
+                    href="/Niket_Mane_Resume_Full_Stack.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary btn-sm"
+                    style={{ flex: 1, justifyContent: 'center' }}
+                  >
+                    <ExternalLink size={14} />
+                    <span>View</span>
+                  </a>
+                  <a
+                    href="/Niket_Mane_Resume_Full_Stack.pdf"
+                    download="Niket_Mane_Resume_Full_Stack.pdf"
+                    className="btn-secondary btn-sm"
+                    style={{ flex: 1, justifyContent: 'center' }}
+                  >
+                    <Download size={14} />
+                    <span>Download</span>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                className="glass-card"
+                style={{
+                  padding: '18px',
+                  borderRadius: '14px',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  background: 'rgba(16, 185, 129, 0.05)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span className="badge-pill" style={{ fontSize: '0.72rem', color: 'var(--accent-emerald-light)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>Backend Track</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>189 KB PDF</span>
+                </div>
+                <div>
+                  <strong style={{ color: 'var(--text-primary)', fontSize: '0.98rem', display: 'block' }}>
+                    Niket_Mane_Resume_Python_Backend.pdf
+                  </strong>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                    FastAPI • SQLAlchemy • Oracle PL/SQL • AWS Cloud
+                  </span>
+                </div>
+                <div style={{ display: 'flex', gap: '8px', marginTop: 'auto' }}>
+                  <a
+                    href="/Niket_Mane_Resume_Python_Backend.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary btn-sm"
+                    style={{ flex: 1, justifyContent: 'center' }}
+                  >
+                    <ExternalLink size={14} />
+                    <span>View</span>
+                  </a>
+                  <a
+                    href="/Niket_Mane_Resume_Python_Backend.pdf"
+                    download="Niket_Mane_Resume_Python_Backend.pdf"
+                    className="btn-secondary btn-sm"
+                    style={{ flex: 1, justifyContent: 'center' }}
+                  >
+                    <Download size={14} />
+                    <span>Download</span>
+                  </a>
+                </div>
+              </div>
             </div>
 
             {resumeToast && (

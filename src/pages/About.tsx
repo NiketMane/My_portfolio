@@ -19,18 +19,15 @@ import {
   Database,
   Terminal,
   ArrowRight,
+  FileText,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const About: React.FC = () => {
-  const { features, resumeConfig } = useFeatures();
+  const { features, openResumeModal } = useFeatures();
 
   const handleResumeClick = () => {
-    if (resumeConfig.mode === 'drive') {
-      window.open(resumeConfig.driveUrl, '_blank');
-    } else {
-      window.open(resumeConfig.fileUrl, '_blank');
-    }
+    openResumeModal();
   };
 
   const experiences = [
@@ -45,9 +42,9 @@ export const About: React.FC = () => {
         'Migrated 100+ Oracle PL/SQL procedures and packages into Python backend services using SQLAlchemy ORM, resolving legacy logic errors and data inconsistencies, and cutting execution time by 30%.',
         'Designed and built 100+ RESTful APIs with FastAPI, documented via Swagger UI/OpenAPI, reducing downstream integration time by 40%.',
         'Diagnosed and optimized slow data-processing workflows using Pandas, identifying performance bottlenecks in large dataset handling and reducing backend execution latency by 25–30%.',
-        'Used GitHub Copilot to accelerate PL/SQL-to-Python conversion, personally reviewing, debugging, and validating all generated code for correctness before release.',
-        'Wrote unit and integration tests with Pytest and validated 100+ API endpoints with Postman, catching regressions early and improving release reliability.',
+        'Wrote Pytest unit and integration tests and validated 100+ endpoints in Postman, catching regressions early and improving release reliability.',
         'Deployed and maintained services on AWS (Lambda, S3, EC2, IAM, VPC); collaborated cross-functionally in an Agile/Scrum environment using Git and Jira.',
+        'Mentored junior developers and conducted code reviews focused on optimization and clean code practices.',
       ],
       techStack: [
         'Python',
@@ -65,6 +62,20 @@ export const About: React.FC = () => {
       ],
     },
     {
+      period: 'Dec 2023 – Jul 2024',
+      role: 'Freelance Full Stack & Backend Developer',
+      company: 'Self-Employed',
+      client: 'Independent Client Engagements',
+      description:
+        'Delivered 2–3 freelance web projects while deepening advanced backend skills in Python, FastAPI, SQL query optimization, and AWS cloud deployment.',
+      achievements: [
+        'Delivered 2–3 freelance web applications tailored to business requirements, implementing modular React frontends and clean REST APIs.',
+        'Architected FastAPI and PostgreSQL database backends, handling data normalization, automated schema migrations, and secure authentication.',
+        'Configured cloud hosting on AWS with SSL certificates, automated backups, and IAM role management.',
+      ],
+      techStack: ['Python', 'FastAPI', 'React.js', 'PostgreSQL', 'Tailwind CSS', 'AWS', 'Git'],
+    },
+    {
       period: 'Mar 2023 – Dec 2023',
       role: 'Associate Web Developer',
       company: 'Proiuvo Pvt Ltd',
@@ -75,8 +86,9 @@ export const About: React.FC = () => {
         'Built modules for a React.js-based LMS & HRMS platform (onboarding, performance evaluation, attendance tracking) with role-based access control, improving HR workflow efficiency by 35%.',
         'Integrated RESTful APIs from a Java Spring Boot backend, resolving data sync issues between frontend and backend and cutting sync errors by 25%.',
         'Debugged and fixed UI defects identified during QA and post-release, reducing post-release bugs by 40%.',
+        'Built MYHRMSPRO, a standalone single-page marketing website for the LMS Pro product, using React.js and Bootstrap 5.',
       ],
-      techStack: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Bootstrap', 'Java Spring Boot', 'REST APIs'],
+      techStack: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Bootstrap 5', 'Java Spring Boot', 'REST APIs'],
     },
   ];
 
@@ -96,6 +108,14 @@ export const About: React.FC = () => {
       badgeColor: 'linear-gradient(135deg, #6366f1, #3b82f6)',
       description:
         'Validates overall knowledge of AWS Cloud platform, core infrastructure services, security principles, compliance, and cloud economics.',
+    },
+    {
+      title: 'React Developer Certificate',
+      code: 'REACT-DEV',
+      issuer: 'Edubuddy Schools Private Limited',
+      badgeColor: 'linear-gradient(135deg, #06b6d4, #0284c7)',
+      description:
+        'Validates professional proficiency in React.js architecture, component lifecycle, hooks, state management, and modern responsive frontend engineering.',
     },
   ];
 
@@ -127,6 +147,7 @@ export const About: React.FC = () => {
       icon: Database,
       skills: [
         'Oracle PL/SQL',
+        'PostgreSQL',
         'MySQL',
         'SQL Query Optimization',
         'API Latency Optimization',
@@ -146,7 +167,7 @@ export const About: React.FC = () => {
     {
       category: 'Frontend & Full Stack Technologies',
       icon: Sparkles,
-      skills: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Bootstrap', 'REST APIs'],
+      skills: ['React.js', 'JavaScript (ES6+)', 'Tailwind CSS', 'Bootstrap 5', 'HTML5', 'CSS3', 'REST APIs'],
     },
   ];
 
@@ -185,8 +206,8 @@ export const About: React.FC = () => {
                 <span>Contact Niket</span>
               </NavLink>
               <button onClick={handleResumeClick} className="btn-secondary">
-                {resumeConfig.mode === 'drive' ? <ExternalLink size={18} /> : <Download size={18} />}
-                <span>{resumeConfig.mode === 'drive' ? 'View Resume' : 'Download Resume (PDF)'}</span>
+                <FileText size={18} />
+                <span>Resumes (Full Stack & Backend)</span>
               </button>
             </div>
           </div>
@@ -320,6 +341,74 @@ export const About: React.FC = () => {
           </div>
         </section>
       )}
+
+      {/* Featured Full Stack & Cloud Project from Resume */}
+      <section style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="brand-icon" style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan))', flexShrink: 0 }}>
+            <Rocket size={20} color="white" />
+          </div>
+          <div>
+            <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, color: 'var(--text-primary)' }}>Featured Production Project</h2>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Highlighted full stack & cloud architecture from official resume</p>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-card"
+          style={{
+            padding: '28px',
+            borderRadius: '20px',
+            border: '1px solid rgba(99, 102, 241, 0.35)',
+            background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(6, 182, 212, 0.05) 100%)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+          }}
+        >
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                <span className="badge-pill badge-fullstack">AWS Full Stack Architecture</span>
+                <span className="badge-pill" style={{ color: 'var(--accent-emerald-light)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>Production Architecture</span>
+              </div>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                Facility Maintenance Request Management System
+              </h3>
+            </div>
+            <NavLink to="/work" className="btn-secondary" style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
+              <span>View in Project Showcase</span>
+              <ArrowRight size={14} />
+            </NavLink>
+          </div>
+
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.96rem', lineHeight: '1.7', margin: 0 }}>
+            Engineered an end-to-end full-stack maintenance request tracking platform: JavaScript and Tailwind CSS frontend, Python backend hosted on Amazon EC2 and Amazon RDS (PostgreSQL), role-based authentication using Amazon Cognito, S3 document attachments, strict IAM access policies, and CloudWatch system monitoring.
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', paddingTop: '10px', borderTop: '1px solid var(--border-subtle)' }}>
+            {['Python', 'FastAPI', 'PostgreSQL (RDS)', 'Amazon EC2', 'Amazon S3', 'Amazon Cognito', 'CloudWatch', 'AWS IAM', 'Tailwind CSS'].map((tag) => (
+              <span
+                key={tag}
+                style={{
+                  fontSize: '0.76rem',
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+                  background: 'var(--bg-surface)',
+                  border: '1px solid var(--border-subtle)',
+                  color: 'var(--accent-cyan-light)',
+                  fontFamily: 'var(--font-mono)',
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </section>
 
       {/* Academic Background */}
       {features.academicBackground && (

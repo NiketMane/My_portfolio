@@ -12,6 +12,7 @@ import { About } from './pages/About';
 import { Work } from './pages/Work';
 import { Contact } from './pages/Contact';
 import { Admin } from './pages/Admin';
+import { ResumeModal } from './components/ResumeModal';
 import { AnimatePresence } from 'framer-motion';
 
 // Route Guard component
@@ -95,6 +96,7 @@ export function App() {
           </main>
           <Footer />
         </div>
+        <ResumeModal />
       </Router>
     </FeatureProvider>
   );

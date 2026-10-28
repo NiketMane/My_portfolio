@@ -24,6 +24,11 @@ export interface ResumeConfig {
   mode: 'drive' | 'file';
   driveUrl: string;
   fileUrl: string;
+  activeTrack: 'fullstack' | 'backend';
+  fullStackFileUrl: string;
+  backendFileUrl: string;
+  fullStackDriveUrl: string;
+  backendDriveUrl: string;
 }
 
 export interface AdminSecurityConfig {
@@ -49,9 +54,14 @@ export const DEFAULT_FEATURES: FeatureFlags = {
 };
 
 export const DEFAULT_RESUME_CONFIG: ResumeConfig = {
-  mode: 'drive',
+  mode: 'file',
   driveUrl: 'https://drive.google.com/file/d/1eVmtq5CV1kfB6ciq0I9PvwG8xB2GhKaF/view?usp=sharing',
-  fileUrl: '/resume.pdf',
+  fileUrl: '/Niket_Mane_Resume_Full_Stack.pdf',
+  activeTrack: 'fullstack',
+  fullStackFileUrl: '/Niket_Mane_Resume_Full_Stack.pdf',
+  backendFileUrl: '/Niket_Mane_Resume_Python_Backend.pdf',
+  fullStackDriveUrl: 'https://drive.google.com/file/d/1eVmtq5CV1kfB6ciq0I9PvwG8xB2GhKaF/view?usp=sharing',
+  backendDriveUrl: 'https://drive.google.com/file/d/1eVmtq5CV1kfB6ciq0I9PvwG8xB2GhKaF/view?usp=sharing',
 };
 
 export const DEFAULT_ADMIN_SECURITY: AdminSecurityConfig = {
@@ -92,9 +102,15 @@ export function getResumeConfig(): ResumeConfig {
       const parsed = JSON.parse(saved);
       if (parsed.driveUrl && parsed.driveUrl.includes('1234567890')) {
         parsed.driveUrl = DEFAULT_RESUME_CONFIG.driveUrl;
-        saveResumeConfig({ ...DEFAULT_RESUME_CONFIG, ...parsed });
       }
-      return { ...DEFAULT_RESUME_CONFIG, ...parsed };
+      return {
+        ...DEFAULT_RESUME_CONFIG,
+        ...parsed,
+        fullStackFileUrl: parsed.fullStackFileUrl || DEFAULT_RESUME_CONFIG.fullStackFileUrl,
+        backendFileUrl: parsed.backendFileUrl || DEFAULT_RESUME_CONFIG.backendFileUrl,
+        fullStackDriveUrl: parsed.fullStackDriveUrl || DEFAULT_RESUME_CONFIG.fullStackDriveUrl,
+        backendDriveUrl: parsed.backendDriveUrl || DEFAULT_RESUME_CONFIG.backendDriveUrl,
+      };
     }
   } catch (err) {
     console.error('Failed to load resume config:', err);

@@ -5,16 +5,12 @@ import { Shield, Menu, X, Code2, Sparkles, FileText, Sun, Moon } from 'lucide-re
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
-  const { features, adminSecurity, resumeConfig, theme, toggleTheme } = useFeatures();
+  const { features, adminSecurity, theme, toggleTheme, openResumeModal } = useFeatures();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleResumeClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (resumeConfig.mode === 'drive') {
-      window.open(resumeConfig.driveUrl, '_blank');
-    } else {
-      window.open(resumeConfig.fileUrl, '_blank');
-    }
+    openResumeModal();
   };
 
   const navLinks = [
